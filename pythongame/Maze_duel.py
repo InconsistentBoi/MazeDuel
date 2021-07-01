@@ -14,3 +14,4 @@ def draw_text(text,font,color,surface,x,y):
 
 
 mfunc.main_menu()
+#test
