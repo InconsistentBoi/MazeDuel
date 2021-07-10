@@ -61,8 +61,8 @@ def play_pressed():
     Transition_moving.fadetoscreen(constants.Width,constants.Height)
     while running:
         
-        constants.WIN.blit(constants.Background,(0,0))
-
+        constants.WIN.blit(constants.Blank_BG,(0,0))
+        button_lvl1=constants.WIN.blit(constants.Lvl1_button_enlarged,(200,285))
 
         mx,my=pygame.mouse.get_pos()
         bonk=(mx,my)

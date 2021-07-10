@@ -22,7 +22,7 @@ normal_size=(300,100)
 enlarged_size=(380,120)
 
 def scale(filename, size):
-    unrefined = pygame.image.load(os.path.join("images","Main_Menu_Images",filename))
+    unrefined = pygame.image.load(os.path.join("images",filename))
     return pygame.transform.scale(unrefined,size)
 
 Background = scale("Background.png", (Width,Height))
@@ -45,6 +45,8 @@ Image_login_enlarged = scale(fname, (enlarged_size))
 fname="Button_Back.png"
 Image_back = scale(fname, (180,80))
 Image_back_enlarged = scale(fname, (190,90))
+Lvl1_button="L1button.png"
+Lvl1_button_enlarged=scale(Lvl1_button,(360,180))
 
 
 # Background_image_unrefined= pygame.image.load(os.path.join("images","Main_Menu_Images","Background.png"))
