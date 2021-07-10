@@ -15,6 +15,9 @@ BLACK= (0,0,0)
 WHITE = (255,255,255) 
 RED= (255,0,0)
 BLUE=(0,0,255)
+VEL= 60
+# Player_x=800
+# Player_y=600
 
 click=False
 
@@ -48,6 +51,7 @@ Image_back_enlarged = scale(fname, (190,90))
 Lvl1_button="L1button.png"
 Lvl1_button_enlarged=scale(Lvl1_button,(360,180))
 Level1=scale("Level1.png",(820,540))
+Player_Image=scale("Playerchar.png",(20,20))
 
 
 # Background_image_unrefined= pygame.image.load(os.path.join("images","Main_Menu_Images","Background.png"))

@@ -1,6 +1,6 @@
 import pygame,sys,os
 from pygame.locals import *
-from Functions_Constants import constants , Transition_moving, login , Level1
+from Functions_Constants import constants , Transition_moving, login , Level1 , Ingame_Objects
 
 def main_menu():
     while True:
@@ -88,34 +88,9 @@ def play_pressed():
 
         pygame.display.update()
         constants.Clock.tick(constants.FPS)
+        # keys_pressed=pygame.key.get_pressed()
+        # Ingame_Objects.player_movement(keys_pressed)
 
-# def level1_pressed():
-#     running=True
-#     Transition_moving.fadetoblack(constants.Width,constants.Height)
-#     Transition_moving.fadetoscreen(constants.Width,constants.Height)
-#     while running:
-#         click=False
-#         constants.WIN.blit(constants.Blank_BG,(0,0))
-
-
-#         mx,my=pygame.mouse.get_pos()
-#         bonk=(mx,my)
-
-
-
-#         for event in pygame.event.get():
-#             if event.type==KEYDOWN:
-#                 if event.key==K_ESCAPE:
-#                     Transition_moving.fadetoblack(constants.Width,constants.Height)
-#                     Transition_moving.fadetoscreen(constants.Width,constants.Height)
-#                     running=False
-#             if event.type==MOUSEBUTTONDOWN:
-#                     if event.button==1:
-#                         click=True       
-
-#             if constants.Lvl1_button.collidepoint((bonk)):
-#                 if click==True:
-#                     Level1.Lvl1_pressed()
 
 def options_pressed():
     running=True
