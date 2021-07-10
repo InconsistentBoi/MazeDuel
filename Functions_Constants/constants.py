@@ -47,6 +47,7 @@ Image_back = scale(fname, (180,80))
 Image_back_enlarged = scale(fname, (190,90))
 Lvl1_button="L1button.png"
 Lvl1_button_enlarged=scale(Lvl1_button,(360,180))
+Level1=scale("Level1.png",(820,540))
 
 
 # Background_image_unrefined= pygame.image.load(os.path.join("images","Main_Menu_Images","Background.png"))
