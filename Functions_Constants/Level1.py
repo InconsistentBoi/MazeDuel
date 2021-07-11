@@ -16,8 +16,7 @@ def Lvl1_pressed():
         Maze=constants.WIN.blit(constants.Level1,(90,90))
         Player=constants.WIN.blit(constants.Player_Image,(Player_Hitbox.x,Player_Hitbox.y))
 
-        
-
+    
         for event in pygame.event.get():
             if event.type==QUIT:
                 pygame.QUIT 
@@ -38,6 +37,7 @@ def Lvl1_pressed():
                     
         
         keys_pressed=pygame.key.get_pressed()
+        Ingame_Objects.maze_collision(Player_Hitbox)
         Ingame_Objects.player_movement(keys_pressed,Player_Hitbox)
         pygame.display.update()
         constants.Clock.tick(constants.FPS)
