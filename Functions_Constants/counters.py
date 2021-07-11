@@ -9,12 +9,10 @@ def draw_text(text,font,color,surface,x,y):
     surface.blit(textobj,textrect)
 
 def health_number():
-    if constants.Health == 2:
-        draw_text("Health=2",constants.font,(255,255,255), constants.WIN, 0, 0)
-    if constants.Health==1:
-        draw_text("Health=1",constants.font,(255,255,255), constants.WIN, 0, 0)
-    if constants.Health == 0:
-        pass
+    draw_text("Health=",constants.font,(255,255,255), constants.WIN, 0, 0)
+    draw_text(str(constants.Health),constants.font,(255,255,255), constants.WIN, 80, 0)
+
+
 
 
 

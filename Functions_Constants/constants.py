@@ -17,7 +17,7 @@ RED= (255,0,0)
 BLUE=(0,0,255)
 VEL= 2
 
-Health = 2
+Health = 20
 
 click=False
 
@@ -56,9 +56,10 @@ Level1=scale("Level1.png",(820,540))
 Player_Image=scale("Playerchar.png",(20,20))
 Level_BG=scale("Level_BG.png",(Width,Height))
 Laser_button=scale("Laserbutton.png",(220,120))
-Laser=scale("laserbeam.png",(5,50))
+Laser=scale("laserbeam.png",(8,60))
 
-
+Rocket=scale("rocket.png",(70,200))
+Rocket_button=scale("Rocketbutton.png",(220,120))
 
 
 # Background_image_unrefined= pygame.image.load(os.path.join("images","Main_Menu_Images","Background.png"))

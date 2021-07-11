@@ -40,6 +40,7 @@ def player_movement(keys_pressed, Player_Hitbox):
 
 def maze_collision(Player_Hitbox):
     if constants.WIN.get_at((Player_Hitbox.x, Player_Hitbox.y)) == (255, 255, 255):
+        constants.Health -= 1
         return True
 
 
@@ -50,13 +51,14 @@ def fin_line_collision(Player_Hitbox):
 
 def laser_collision(Player_Hitbox,Laser_Hitbox):
     if Player_Hitbox.colliderect(Laser_Hitbox):
-        constants.Health -= 1
+        constants.Health -= 7
         Player_Hitbox.x, Player_Hitbox.y = 250, 590
 
 
-def rocket_collision(Player_Hitbox):
-    if constants.WIN.get_at((Player_Hitbox.x, Player_Hitbox.y)) == (54, 66, 0):
-        return True
+def rocket_collision(Player_Hitbox,Rocket_Hitbox):
+    if Player_Hitbox.colliderect(Rocket_Hitbox):
+        constants.Health -= 11
+        Player_Hitbox.x, Player_Hitbox.y = 250, 590
 
 
 def landmine_collision(Player_Hitbox):
@@ -65,9 +67,14 @@ def landmine_collision(Player_Hitbox):
 
 
 def laser_pressed(Laser_Hitbox,a):
-    Laser_Hitbox.y -= 12
+    Laser_Hitbox.y -= 14
     if Laser_Hitbox.y == 0:
         a=0
+
+def rocket_pressed(Rocket_Hitbox,b):
+    Rocket_Hitbox.y -= 9
+    if Rocket_Hitbox.y == 0:
+        b=0
 
 
 
