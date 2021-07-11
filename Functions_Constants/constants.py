@@ -15,7 +15,7 @@ BLACK= (0,0,0)
 WHITE = (255,255,255) 
 RED= (255,0,0)
 BLUE=(0,0,255)
-VEL= 60
+VEL= 5
 # Player_x=800
 # Player_y=600
 
