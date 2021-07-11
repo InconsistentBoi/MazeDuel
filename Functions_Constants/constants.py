@@ -15,7 +15,7 @@ BLACK= (0,0,0)
 WHITE = (255,255,255) 
 RED= (255,0,0)
 BLUE=(0,0,255)
-VEL= 5
+VEL= 2
 # Player_x=800
 # Player_y=600
 
@@ -52,7 +52,9 @@ Lvl1_button="L1button.png"
 Lvl1_button_enlarged=scale(Lvl1_button,(360,180))
 Level1=scale("Level1.png",(820,540))
 Player_Image=scale("Playerchar.png",(20,20))
-
+Level_BG=scale("Level_BG.png",(Width,Height))
+Laser_button=scale("Laserbutton.png",(220,120))
+Laser=scale("laserbeam.png",(5,50))
 
 # Background_image_unrefined= pygame.image.load(os.path.join("images","Main_Menu_Images","Background.png"))
 # Background=pygame.transform.scale(Background_image_unrefined,(Width,Height))
