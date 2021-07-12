@@ -52,12 +52,14 @@ def fin_line_collision(Player_Hitbox):
 def laser_collision(Player_Hitbox,Laser_Hitbox):
     if Player_Hitbox.colliderect(Laser_Hitbox):
         constants.Health -= 7
+        Laser_Hitbox.x, Laser_Hitbox.y = 0, 0
         Player_Hitbox.x, Player_Hitbox.y = 250, 590
 
 
 def rocket_collision(Player_Hitbox,Rocket_Hitbox):
     if Player_Hitbox.colliderect(Rocket_Hitbox):
         constants.Health -= 11
+        Rocket_Hitbox.x, Rocket_Hitbox.y = 0, 0
         Player_Hitbox.x, Player_Hitbox.y = 250, 590
 
 

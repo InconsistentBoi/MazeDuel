@@ -62,7 +62,7 @@ def Lvl1_pressed():
                     if event.key==K_ESCAPE:
                         Transition_moving.fadetoblack(constants.Width,constants.Height)
                         Transition_moving.fadetoscreen(constants.Width,constants.Height)
-                        constants.Health=2
+                        constants.Health = 20
                         running=False
                         
                                 
