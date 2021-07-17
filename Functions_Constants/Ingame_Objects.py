@@ -59,17 +59,28 @@ def laser_collision(Player_Hitbox,Laser_Hitbox):
 def rocket_collision(Player_Hitbox,Rocket_Hitbox):
     if Player_Hitbox.colliderect(Rocket_Hitbox):
         constants.Health -= 11
-        Rocket_Hitbox.x, Rocket_Hitbox.y = 0, 0
+        Rocket_Hitbox.x, Rocket_Hitbox.y = 1280, 0
         Player_Hitbox.x, Player_Hitbox.y = 250, 590
 
 
-def landmine_collision(Player_Hitbox):
-    if constants.WIN.get_at((Player_Hitbox.x, Player_Hitbox.y)) == (136, 0, 2):
-        return True
+def landmine1_collision(Player_Hitbox,Landmine1_Hitbox):
+    if Player_Hitbox.colliderect(Landmine1_Hitbox):
+        constants.Health -= 15 
+        Player_Hitbox.x, Player_Hitbox.y = 250, 590
+
+def landmine2_collision(Player_Hitbox,Landmine2_Hitbox):
+    if Player_Hitbox.colliderect(Landmine2_Hitbox):
+        constants.Health -= 15 
+        Player_Hitbox.x, Player_Hitbox.y = 250, 590
+
+def landmine3_collision(Player_Hitbox,Landmine3_Hitbox):
+    if Player_Hitbox.colliderect(Landmine3_Hitbox):
+        constants.Health -= 15 
+        Player_Hitbox.x, Player_Hitbox.y = 250, 590
 
 
 def laser_pressed(Laser_Hitbox,a):
-    Laser_Hitbox.y -= 14
+    Laser_Hitbox.y -= 15
     if Laser_Hitbox.y == 0:
         a=0
 
@@ -82,3 +93,17 @@ def rocket_pressed(Rocket_Hitbox,b):
 
 
 
+# def Mine1_Button_pressed(Mine1_Button,Used_Num):
+#     if Used_Num<=2:
+#         Active_Landmine1=constants.WIN.blit(constants.Active_Landmine,(393,365))
+#         Used_Num+=1
+
+# def Mine2_Button_pressed(Mine2_Button,Used_Num):
+#     if Used_Num<=2:
+#         Active_Landmine2=constants.WIN.blit(constants.Active_Landmine,(790,565))       
+#         Used_Num+=1
+
+# def Mine3_Button_pressed(Mine3_Button,Used_Num):
+#     if Used_Num<=2:
+#         Active_Landmine3=constants.WIN.blit(constants.Active_Landmine,(710,270))
+#         Used_Num+=1

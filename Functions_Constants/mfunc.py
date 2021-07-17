@@ -1,6 +1,6 @@
 import pygame,sys,os
 from pygame.locals import *
-from Functions_Constants import constants , Transition_moving, login , Level1 , Ingame_Objects
+from Functions_Constants import constants , Transition_moving, login , Level1 , Ingame_Objects, counters
 
 def main_menu():
     while True:
@@ -163,7 +163,7 @@ def fullscreen_pressed():
     pygame.display.update()
     constants.Clock.tick(constants.FPS)
 
-
+Error_Hitbox = pygame.Rect(10,10,5,50)
 
 def login_pressed():
     running=True
@@ -171,6 +171,13 @@ def login_pressed():
         click=False
         constants.WIN.blit(constants.Blank_BG,(0,0))
         button_back=constants.WIN.blit(constants.Image_back,(10,5))
+
+        button_signin = constants.WIN.blit(constants.temp_button,(600,200))
+
+        
+
+        counters.draw_text("haha noob",constants.font,(255,255,255),constants.WIN, Error_Hitbox.x,Error_Hitbox.y)
+
 
         mx,my=pygame.mouse.get_pos()
         bonk=(mx,my)
@@ -198,6 +205,11 @@ def login_pressed():
                     running=False
             for i in range(4):
                 login.input(event, i)
+            
+            if button_signin.collidepoint((bonk)):
+                if click == True:
+                    login.db_input()
+                    # Error_Hitbox = pygame.Rect(10,10,5,50)
         
         for i in range(4):
             if constants.active[i]:
@@ -207,6 +219,6 @@ def login_pressed():
         
         for i in range(4):
             login.output(i)
-
+        
         pygame.display.update()
         constants.Clock.tick(constants.FPS)
