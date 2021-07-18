@@ -28,6 +28,7 @@ def scale(filename, size):
     unrefined = pygame.image.load(os.path.join("images",filename))
     return pygame.transform.scale(unrefined,size)
 
+#menu images
 Background = scale("Background.png", (Width,Height))
 Blank_BG = scale("Blank_BG.png", (Width,Height))
 fname="Button_Play.png"
@@ -56,9 +57,12 @@ Lvl1_button="L1button.png"
 Lvl1_button_enlarged=scale(Lvl1_button,(360,180))
 Level1=scale("Level1.png",(820,540))
 
+#ingame objects
 Player_Image=scale("Playerchar.png",(20,20))
+
 Level_BG=scale("Level_BG.png",(Width,Height))
 Laser_button=scale("Laserbutton.png",(220,120))
+
 Laser=scale("laserbeam.png",(9,69))
 L1_Layout = scale("L1_Layout.png",(Width,Height))
 
@@ -73,41 +77,11 @@ Mine1_button = scale("Mine1button.png",(50,50))
 Mine2_button = scale("Mine2button.png",(50,50))
 Mine3_button = scale("Mine3button.png",(50,50))
 
-# Background_image_unrefined= pygame.image.load(os.path.join("images","Main_Menu_Images","Background.png"))
-# Background=pygame.transform.scale(Background_image_unrefined,(Width,Height))
-
-# Blank_BG_unrefined= pygame.image.load(os.path.join("images","Main_Menu_Images","Blank_BG.png"))
-# Blank_BG=pygame.transform.scale(Blank_BG_unrefined,(Width,Height))
-
-# Button_play_unrefined=pygame.image.load(os.path.join("images","Main_Menu_Images","Button_Play.png"))
-# Image_play=pygame.transform.scale(Button_play_unrefined,(normal_size))
-# Image_play_enlarged=pygame.transform.scale(Button_play_unrefined,(enlarged_size))
-
-# Button_options_unrefined=pygame.image.load(os.path.join("images","Main_Menu_Images","Button_Options.png"))
-# Image_options=pygame.transform.scale(Button_options_unrefined,(normal_size))
-# Image_options_enlarged=pygame.transform.scale(Button_options_unrefined,(enlarged_size))
-
-# Button_exit_unrefined=pygame.image.load(os.path.join("images","Main_Menu_Images","Button_Exit.png"))
-# Image_exit=pygame.transform.scale(Button_exit_unrefined,(normal_size))
-# Image_exit_enlarged=pygame.transform.scale(Button_exit_unrefined,(enlarged_size))
-
-# Button_fullscreen_unrefined=pygame.image.load(os.path.join("images","Main_Menu_Images","Button_Fullscreen.png"))
-# Image_fullscreen=pygame.transform.scale(Button_fullscreen_unrefined,(normal_size))
-# Image_fullscreen_enlarged=pygame.transform.scale(Button_fullscreen_unrefined,(enlarged_size))
-
-# Button_login_unrefined=pygame.image.load(os.path.join("images","Main_Menu_Images","Button_Login.png"))
-# Image_login=pygame.transform.scale(Button_login_unrefined,(normal_size))
-# Image_login_enlarged=pygame.transform.scale(Button_login_unrefined,(enlarged_size))
-
-# Button_back_unrefined=pygame.image.load(os.path.join("images","Main_Menu_Images","Button_Back.png"))
-# Image_back=pygame.transform.scale(Button_back_unrefined,(180,80))
-# Image_back_enlarged=pygame.transform.scale(Button_back_unrefined,(190,90))
+Strike=scale("areastrike.png",(200,200)) #is now trap
+Strike_button=scale("Strikebutton.png",(220,120))
 
 
-# Button_bg_unrefined=pygame.image.load(os.path.join("images","Text_Bg.png"))
-# Button_bg=pygame.transform.scale(Button_bg_unrefined,(220,80))
-
-
+#register screen
 input_rect = [pygame.Rect(200,300,335,45), pygame.Rect(200,600,335,45), pygame.Rect(650,300,335,45), pygame.Rect(650,600,335,45)]
 active = [False, False, False, False]
 charcount = [0, 0, 0, 0]
