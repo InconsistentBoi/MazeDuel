@@ -13,31 +13,32 @@ def Lvl1_pressed():
     Rocket_Hitbox = pygame.Rect(Player_Hitbox.x,720,50,50)
     Strike_Hitbox=pygame.Rect(0,720,200,200)
 
-    a,b,c,d,e,f,g=(0,0,0,0,0,0,0)
-    Used_Num=0
+    a,b,c,d,e,f,g=(1,1,1,1,1,1,1)
+    Used_Num=2
     start_ticks=pygame.time.get_ticks()
     while running:
+        seconds=(pygame.time.get_ticks()-start_ticks)/1000
         constants.WIN.blit(constants.L1_Layout,(0,0))
         click=False
 
-        if a==1:
+        if a==0:
             Ingame_Objects.laser_pressed(Laser_Hitbox)
         else:
             Laser_Hitbox.x=Player_Hitbox.x + 10
 
-        if b==1:
+        if b==0:
             Ingame_Objects.rocket_pressed(Rocket_Hitbox)
         else:
             Rocket_Hitbox.x=Player_Hitbox.x 
     
-        if c==1:
+        if c==0:
             Landmine1_Hitbox = pygame.Rect(393,365,40,40)
             Active_Landmine1=constants.WIN.blit(constants.Active_Landmine,(Landmine1_Hitbox.x,Landmine1_Hitbox.y))
             Ingame_Objects.landmine1_collision(Player_Hitbox,Landmine1_Hitbox)
         else:
             pass
         
-        if d==1:
+        if d==0:
             Landmine2_Hitbox = pygame.Rect(790,565,40,40)
             Active_Landmine2=constants.WIN.blit(constants.Active_Landmine,(Landmine2_Hitbox.x,Landmine2_Hitbox.y))
             
@@ -45,14 +46,14 @@ def Lvl1_pressed():
         else:
             pass
             
-        if e==1:
+        if e==0:
             Landmine3_Hitbox = pygame.Rect(710,270,40,40)
             Active_Landmine3=constants.WIN.blit(constants.Active_Landmine,(Landmine3_Hitbox.x,Landmine3_Hitbox.y))
             Ingame_Objects.landmine3_collision(Player_Hitbox,Landmine3_Hitbox)
         else:
             pass
         
-        '''if f==1:  #needs fixing
+        '''if f==0:  #needs fixing
             
                 Strike = constants.WIN.blit(constants.Strike,(mx-100,my-100))
                 seconds=(pygame.time.get_ticks()-start_ticks)/1000 
@@ -112,30 +113,30 @@ def Lvl1_pressed():
                         # print(bonk)
             if Laser_Button.collidepoint((bonk)):
                 if click==True:
-                    a=1 
+                    a=0 
 
             if Rocket_Button.collidepoint((bonk)):
                 if click==True:
-                    b=1
+                    b=0
                     
             if Mine1_Button.collidepoint((bonk)):
-                if Used_Num<=1 and click==True:
-                    c=1
-                    Used_Num+=1
+                if Used_Num>=1 and click==True:
+                    c=0
+                    Used_Num-=1
 
             if Mine2_Button.collidepoint((bonk)):
-                if Used_Num<=1 and click==True:
-                    d=1
-                    Used_Num+=1
+                if Used_Num>=1 and click==True:
+                    d=0
+                    Used_Num-=1
 
             if Mine3_Button.collidepoint((bonk)):
-                if Used_Num<=1 and click==True:
-                    e=1
-                    Used_Num+=1
+                if Used_Num>=1 and click==True:
+                    e=0
+                    Used_Num-=1
 
             if Strike_Button.collidepoint((bonk)):
                 if click==True:
-                    f=1 
+                    f=0 
 
             if event.type==KEYDOWN:
                     if event.key==K_ESCAPE:
@@ -143,28 +144,28 @@ def Lvl1_pressed():
                         Transition_moving.fadetoscreen(constants.Width,constants.Height)
                         constants.Health = 20
                         running=False
-                
                         
         
 
 
         keys_pressed=pygame.key.get_pressed()
-        if Ingame_Objects.fin_line_collision(Player_Hitbox):
-            pass
+        
+            
         Ingame_Objects.laser_collision(Player_Hitbox,Laser_Hitbox)
         Ingame_Objects.rocket_collision(Player_Hitbox,Rocket_Hitbox)
         Ingame_Objects.maze_collision(Player_Hitbox)
         Ingame_Objects.player_movement(keys_pressed,Player_Hitbox)
 
         counters.health_number()
+        counters.laser_number(a)
+        counters.rocket_number(b)
+        counters.landmine_number(Used_Num)
+        Ingame_Objects.fin_line_collision(bonk,click)
 
-
-
-        
         pygame.display.update()
         constants.Clock.tick(constants.FPS)
         
-
+    
 
 
 

@@ -80,6 +80,8 @@ Mine3_button = scale("Mine3button.png",(50,50))
 Strike=scale("areastrike.png",(200,200)) #is now trap
 Strike_button=scale("Strikebutton.png",(220,120))
 
+Pause_Screen= scale("Pause.png",(Width,Height))
+
 
 #register screen
 input_rect = [pygame.Rect(200,300,335,45), pygame.Rect(200,600,335,45), pygame.Rect(650,300,335,45), pygame.Rect(650,600,335,45)]

@@ -11,10 +11,13 @@ def draw_text(text,font,color,surface,x,y):
 def health_number():
     draw_text("Health= " + str(constants.Health),constants.font,(255,255,255), constants.WIN, 0, 0)
 
+def laser_number(a):
+    draw_text("Lasers remaining: "+ str(a), constants.font,(255,255,255),constants.WIN, 1003,220)
 
+def rocket_number(b):
+    draw_text("Rockets remaining: "+ str(b), constants.font,(255,255,255),constants.WIN, 1003,369)
 
-
-
-
+def landmine_number(Used_Num):
+    draw_text("Landmines remaining: "+ str(Used_Num), constants.font,(255,255,255),constants.WIN, 1003,516)
 
 
