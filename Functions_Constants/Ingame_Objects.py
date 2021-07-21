@@ -46,10 +46,11 @@ def maze_collision(Player_Hitbox):
 
 def fin_line_collision(bonk,click):
     if constants.WIN.get_at((bonk)) == (14, 209, 69):
-        while True:
-            constants.WIN.blit(constants.Blank_BG,(0,0))
-            if click==True:
-                break
+        # while True:
+        #     constants.WIN.blit(constants.Blank_BG,(0,0))
+        #     if click==True:
+                # break
+        return True
 
 
 def laser_collision(Player_Hitbox,Laser_Hitbox):

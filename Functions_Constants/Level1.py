@@ -1,6 +1,6 @@
 import pygame,sys,os
 from pygame.locals import *
-from Functions_Constants import constants , Transition_moving , Ingame_Objects, counters
+from Functions_Constants import constants , Transition_moving , Ingame_Objects, counters, finscrn
 
 
 def Lvl1_pressed():
@@ -160,7 +160,8 @@ def Lvl1_pressed():
         counters.laser_number(a)
         counters.rocket_number(b)
         counters.landmine_number(Used_Num)
-        Ingame_Objects.fin_line_collision(bonk,click)
+        if Ingame_Objects.fin_line_collision(bonk,click):
+            finscrn.fin()
 
         pygame.display.update()
         constants.Clock.tick(constants.FPS)

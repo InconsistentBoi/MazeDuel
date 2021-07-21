@@ -4,6 +4,7 @@ from Functions_Constants import constants , Transition_moving, login , Level1 , 
 
 def main_menu():
     while True:
+            
             constants.WIN.blit(constants.Background,(0,0))
 
             mx,my=pygame.mouse.get_pos()
