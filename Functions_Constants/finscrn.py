@@ -2,7 +2,7 @@ import pygame,sys,os
 from pygame.locals import *
 from Functions_Constants import constants , Transition_moving, login , Level1 , Ingame_Objects, mfunc, counters
 
-def fin(winner):
+def fin(winner, Health):
     
     running = True
     while running:
@@ -12,8 +12,13 @@ def fin(winner):
 
         menubutton = constants.WIN.blit(constants.Fin2Menu_Button,(50,50))
 
-        counters.draw_text(winner + "wins", constants.font, (255,255,255), constants.WIN, 640, 360)
+        counters.draw_text(winner + "wins", constants.Newfont, (255,255,255), constants.WIN, 550, 10)
         
+        counters.draw_text("Health remaining: " + str(Health), constants.Newfont, (255,255,255), constants.WIN, 300, 200)
+
+        counters.draw_text("Player 1 Stats:", constants.Newfont, (255,255,255), constants.WIN, 80, 350)
+        counters.draw_text("Player 2 Stats:", constants.Newfont, (255,255,255), constants.WIN, 950, 350)
+
         counters.PlayTime()
 
         if menubutton.collidepoint((bonk)):
@@ -29,6 +34,7 @@ def fin(winner):
             if event.type==MOUSEBUTTONDOWN:
                 if event.button==1:
                     click=True
+                    print(bonk)
             # if event.type==KEYDOWN:
             #         if event.key==K_ESCAPE:
             #             running=False

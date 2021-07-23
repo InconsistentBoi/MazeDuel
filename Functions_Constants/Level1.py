@@ -110,7 +110,7 @@ def Lvl1_pressed():
             if event.type==MOUSEBUTTONDOWN:
                     if event.button==1:
                         click=True
-                        # print(bonk)
+                        #print(bonk)
             if Laser_Button.collidepoint((bonk)):
                 if click==True:
                     a=0 
@@ -160,18 +160,21 @@ def Lvl1_pressed():
         counters.laser_number(a)
         counters.rocket_number(b)
         counters.landmine_number(Used_Num)
+        
         if Ingame_Objects.fin_line_collision(Player_Hitbox):
+            Remaining_Health= constants.Health
             constants.Health = 20
             Player_Hitbox.x, Player_Hitbox.y = 250,590
-            winner = "Player 1"
-            finscrn.fin(winner)
+            winner = "Player 1 "
+            finscrn.fin(winner,Remaining_Health)
             
             
         if constants.Health <= 0:
+            Remaining_Health= 0
             constants.Health = 20
             Player_Hitbox.x, Player_Hitbox.y = 250,590
-            winner = "Player 2"
-            finscrn.fin(winner) 
+            winner = "Player 2 "
+            finscrn.fin(winner,Remaining_Health) 
 
         pygame.display.update()
         constants.Clock.tick(constants.FPS)

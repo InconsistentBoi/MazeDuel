@@ -23,9 +23,9 @@ def landmine_number(Used_Num):
 seconds=0
 
 def PlayTime():
-    draw_text("Time taken= " + str(seconds),constants.font,(255,255,255), constants.WIN, 640, 20)
+    draw_text("Time taken= " + str(seconds) + " seconds",constants.Newfont,(255,255,255), constants.WIN, 450, 50)
 
 def RunningTime():
-    draw_text("Time= " + str(seconds),constants.font,(255,255,255), constants.WIN, 640, 10)
+    draw_text("Time= " + str(seconds) ,constants.font,(255,255,255), constants.WIN, 550, 10)
 
 
