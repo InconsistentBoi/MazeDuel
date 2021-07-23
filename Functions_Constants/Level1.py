@@ -5,8 +5,14 @@ from Functions_Constants import constants , Transition_moving , Ingame_Objects, 
 
 def Lvl1_pressed():
     running=True
+
+    LevelSound = pygame.mixer.Sound(os.path.join('Sounds', 'LevelSound.mp3'))
+    LevelSound.play()
+
     Transition_moving.fadetoblack(constants.Width,constants.Height)
     Transition_moving.fadetoscreen(constants.Width,constants.Height)
+
+
 
     Player_Hitbox=pygame.Rect(250,590,20,20)
     Laser_Hitbox=pygame.Rect(Player_Hitbox.x,720,5,50)

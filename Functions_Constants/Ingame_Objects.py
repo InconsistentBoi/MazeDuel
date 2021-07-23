@@ -11,13 +11,14 @@ def player_movement(keys_pressed, Player_Hitbox):
     if keys_pressed[K_a]:
         if maze_collision(Player_Hitbox) != True:  # Leftttttt
             Player_Hitbox.x -= constants.VEL
-            
+            constants.Player_Image = constants.Player_Image_Left
         else:
             Player_Hitbox.x, Player_Hitbox.y = 250, 590
             
     if keys_pressed[K_d]:
         if maze_collision(Player_Hitbox) != True:
             Player_Hitbox.x += constants.VEL
+            constants.Player_Image = constants.Player_Image_Right
             
         else:
             Player_Hitbox.x, Player_Hitbox.y = 250, 590
@@ -25,6 +26,7 @@ def player_movement(keys_pressed, Player_Hitbox):
     if keys_pressed[K_s]:
         if maze_collision(Player_Hitbox) != True:  # down
             Player_Hitbox.y += constants.VEL
+            constants.Player_Image = constants.Player_Image_Down
            
         else:
             Player_Hitbox.x, Player_Hitbox.y = 250, 590
@@ -32,14 +34,38 @@ def player_movement(keys_pressed, Player_Hitbox):
     if keys_pressed[K_w]:
         if maze_collision(Player_Hitbox) != True:  # up
             Player_Hitbox.y -= constants.VEL
+            constants.Player_Image = constants.Player_Image_Up
             
         else:
             Player_Hitbox.x, Player_Hitbox.y = 250, 590
-           
 
+    # if keys_pressed[K_w] and keys_pressed[K_a]:
+    #     if maze_collision(Player_Hitbox) != True:
+    #         constants.Player_Image = constants.Player_Image_NW
+    #     else:
+    #         Player_Hitbox.x, Player_Hitbox.y = 250, 590
+
+    # if keys_pressed[K_w] and keys_pressed[K_d]:
+    #     if maze_collision(Player_Hitbox) != True:
+    #         constants.Player_Image = constants.Player_Image_NE
+    #     else:
+    #         Player_Hitbox.x, Player_Hitbox.y = 250, 590
+    
+    # if keys_pressed[K_s] and keys_pressed[K_a]:
+    #     if maze_collision(Player_Hitbox) != True:
+    #         constants.Player_Image = constants.Player_Image_SW
+    #     else:
+    #         Player_Hitbox.x, Player_Hitbox.y = 250, 590
+
+    # if keys_pressed[K_s] and keys_pressed[K_d]:
+    #     if maze_collision(Player_Hitbox) != True:
+    #         constants.Player_Image = constants.Player_Image_SE
+    #     else:
+    #         Player_Hitbox.x, Player_Hitbox.y = 250, 590
 
 def maze_collision(Player_Hitbox):
     if constants.WIN.get_at((Player_Hitbox.x, Player_Hitbox.y)) == (255, 255, 255):
+        
         constants.Health -= 1
         return True
 

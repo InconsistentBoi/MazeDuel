@@ -29,6 +29,9 @@ def scale(filename, size):
     unrefined = pygame.image.load(os.path.join("images",filename))
     return pygame.transform.scale(unrefined,size)
 
+def rotate(filename, size, angle):
+    return pygame.transform.rotate(scale(filename, size), angle)
+
 #menu images
 Background = scale("Background.png", (Width,Height))
 Blank_BG = scale("Blank_BG.png", (Width,Height))
@@ -59,7 +62,17 @@ Lvl1_button_enlarged=scale(Lvl1_button,(360,180))
 Level1=scale("Level1.png",(820,540))
 
 #ingame objects
-Player_Image=scale("Playerchar.png",(20,20))
+Player_Image_Up=scale("Playerchar.png",(26,26))
+Player_Image_Right=rotate("Playerchar.png",(26,26), -90)
+Player_Image_Down=rotate("Playerchar.png",(26,26), 180)
+Player_Image_Left=rotate("Playerchar.png",(26,26), 90)
+Player_Image=Player_Image_Up
+
+Player_Image_NW = rotate("Playerchar.png",(26,26), 45)
+Player_Image_NE = rotate("Playerchar.png",(26,26), -45)
+Player_Image_SW = rotate("Playerchar.png",(26,26), 135)
+Player_Image_SE = rotate("Playerchar.png",(26,26), -135)
+
 
 Level_BG=scale("Level_BG.png",(Width,Height))
 Laser_button=scale("Laserbutton.png",(220,120))

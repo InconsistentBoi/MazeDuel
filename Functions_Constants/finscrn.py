@@ -14,10 +14,14 @@ def fin(winner, Health):
 
         counters.draw_text(winner + "wins", constants.Newfont, (255,255,255), constants.WIN, 550, 10)
         
-        counters.draw_text("Health remaining: " + str(Health), constants.Newfont, (255,255,255), constants.WIN, 300, 200)
 
         counters.draw_text("Player 1 Stats:", constants.Newfont, (255,255,255), constants.WIN, 80, 350)
+
+        counters.draw_text("Health remaining: " + str(Health), constants.Newfont, (255,255,255), constants.WIN, 80, 450)
+        
         counters.draw_text("Player 2 Stats:", constants.Newfont, (255,255,255), constants.WIN, 950, 350)
+
+        counters.draw_text("Damage done: " + str(20 - Health), constants.Newfont, (255,255,255), constants.WIN, 950, 450)
 
         counters.PlayTime()
 
