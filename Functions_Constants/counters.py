@@ -20,4 +20,12 @@ def rocket_number(b):
 def landmine_number(Used_Num):
     draw_text("Landmines remaining: "+ str(Used_Num), constants.font,(255,255,255),constants.WIN, 1003,516)
 
+seconds=0
+
+def PlayTime():
+    draw_text("Time taken= " + str(seconds),constants.font,(255,255,255), constants.WIN, 640, 20)
+
+def RunningTime():
+    draw_text("Time= " + str(seconds),constants.font,(255,255,255), constants.WIN, 640, 10)
+
 

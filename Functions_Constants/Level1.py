@@ -12,12 +12,12 @@ def Lvl1_pressed():
     Laser_Hitbox=pygame.Rect(Player_Hitbox.x,720,5,50)
     Rocket_Hitbox = pygame.Rect(Player_Hitbox.x,720,50,50)
     Strike_Hitbox=pygame.Rect(0,720,200,200)
-
-    a,b,c,d,e,f,g=(1,1,1,1,1,1,1)
+    
+    a,b,c,d,e=(1,1,1,1,1)
     Used_Num=2
     start_ticks=pygame.time.get_ticks()
     while running:
-        seconds=(pygame.time.get_ticks()-start_ticks)/1000
+        counters.seconds=(pygame.time.get_ticks()-start_ticks)/1000
         constants.WIN.blit(constants.L1_Layout,(0,0))
         click=False
 
@@ -99,7 +99,7 @@ def Lvl1_pressed():
 
         # Strike = constants.WIN.blit(constants.Strike,(Strike_Hitbox.x,Strike_Hitbox.y))
         
-        
+        counters.RunningTime()
     
     
 
@@ -160,8 +160,18 @@ def Lvl1_pressed():
         counters.laser_number(a)
         counters.rocket_number(b)
         counters.landmine_number(Used_Num)
-        if Ingame_Objects.fin_line_collision(bonk,click):
-            finscrn.fin()
+        if Ingame_Objects.fin_line_collision(Player_Hitbox):
+            constants.Health = 20
+            Player_Hitbox.x, Player_Hitbox.y = 250,590
+            winner = "Player 1"
+            finscrn.fin(winner)
+            
+            
+        if constants.Health <= 0:
+            constants.Health = 20
+            Player_Hitbox.x, Player_Hitbox.y = 250,590
+            winner = "Player 2"
+            finscrn.fin(winner) 
 
         pygame.display.update()
         constants.Clock.tick(constants.FPS)
