@@ -96,7 +96,8 @@ Strike_button=scale("Strikebutton.png",(220,120))
 
 Pause_Screen= scale("Pause.png",(Width,Height))
 
-Fin2Menu_Button = scale("Text_Bg.png", (60,20))
+Fin2Menu_Button = scale("Button_Menu.png", (200,75))
+FinBG = scale("FinBG.png", (1270,385))
 #register screen
 input_rect = [pygame.Rect(200,300,335,45), pygame.Rect(200,600,335,45), pygame.Rect(650,300,335,45), pygame.Rect(650,600,335,45)]
 active = [False, False, False, False]

@@ -7,11 +7,12 @@ def fin(winner, Health):
     running = True
     while running:
         constants.WIN.blit(constants.Blank_BG,(0,0))
+        constants.WIN.blit(constants.FinBG,(5,330))
         mx,my=pygame.mouse.get_pos()
         bonk=(mx,my)
 
         menubutton = constants.WIN.blit(constants.Fin2Menu_Button,(50,50))
-
+        
         counters.draw_text(winner + "wins", constants.Newfont, (255,255,255), constants.WIN, 550, 10)
         
 
