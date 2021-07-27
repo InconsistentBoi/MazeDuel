@@ -67,6 +67,7 @@ def maze_collision(Player_Hitbox):
     if constants.WIN.get_at((Player_Hitbox.x, Player_Hitbox.y)) == (255, 255, 255):
         
         constants.Health -= 1
+        
         return True
 
 
@@ -78,6 +79,7 @@ def fin_line_collision(Player_Hitbox):
 def laser_collision(Player_Hitbox,Laser_Hitbox):
     if Player_Hitbox.colliderect(Laser_Hitbox):
         constants.Health -= 7
+        constants.Hits += 1
         Laser_Hitbox.x, Laser_Hitbox.y = 0, 0
         Player_Hitbox.x, Player_Hitbox.y = 250, 590
 
@@ -85,33 +87,34 @@ def laser_collision(Player_Hitbox,Laser_Hitbox):
 def rocket_collision(Player_Hitbox,Rocket_Hitbox):
     if Player_Hitbox.colliderect(Rocket_Hitbox):
         constants.Health -= 10
+        constants.Hits += 1
         Rocket_Hitbox.x, Rocket_Hitbox.y = 1280, 0
         Player_Hitbox.x, Player_Hitbox.y = 250, 590
 
 
 def landmine1_collision(Player_Hitbox,Landmine1_Hitbox):
     if Player_Hitbox.colliderect(Landmine1_Hitbox):
-        constants.Health -= 11 
+        constants.Health -= 11
+        constants.Hits += 1 
         Player_Hitbox.x, Player_Hitbox.y = 250, 590
 
 def landmine2_collision(Player_Hitbox,Landmine2_Hitbox):
     if Player_Hitbox.colliderect(Landmine2_Hitbox):
-        constants.Health -= 15 
+        constants.Health -= 15
+        constants.Hits += 1 
         Player_Hitbox.x, Player_Hitbox.y = 250, 590
 
 def landmine3_collision(Player_Hitbox,Landmine3_Hitbox):
     if Player_Hitbox.colliderect(Landmine3_Hitbox):
-        constants.Health -= 15 
+        constants.Health -= 15
+        constants.Hits += 1 
         Player_Hitbox.x, Player_Hitbox.y = 250, 590
 
-def landmine1_collision(Player_Hitbox,Landmine1_Hitbox):
-    if Player_Hitbox.colliderect(Landmine1_Hitbox):
-        constants.Health -= 11 
-        Player_Hitbox.x, Player_Hitbox.y = 250, 590
 
 def Strike_collision(Player_Hitbox):
     if constants.WIN.get_at((Player_Hitbox.x, Player_Hitbox.y)) == (236,28,36):
         constants.Health -= 20
+        constants.Hits += 1
 
 def laser_pressed(Laser_Hitbox):
     Laser_Hitbox.y -= 15

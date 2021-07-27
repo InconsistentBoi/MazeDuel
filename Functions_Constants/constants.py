@@ -19,6 +19,8 @@ BLUE=(0,0,255)
 VEL= 2
 
 Health = 20
+Used_Sabotages = 0
+Hits = 0
 
 click=False
 

@@ -6,8 +6,8 @@ from Functions_Constants import constants , Transition_moving , Ingame_Objects, 
 def Lvl1_pressed():
     running=True
 
-    LevelSound = pygame.mixer.Sound(os.path.join('Sounds', 'LevelSound.mp3'))
-    LevelSound.play()
+    # BackgroundSound = pygame.mixer.Sound(os.path.join('Sounds', 'Bruh.mp3'))
+    # BackgroundSound.play(-1)
 
     Transition_moving.fadetoblack(constants.Width,constants.Height)
     Transition_moving.fadetoscreen(constants.Width,constants.Height)
@@ -119,30 +119,37 @@ def Lvl1_pressed():
                         #print(bonk)
             if Laser_Button.collidepoint((bonk)):
                 if click==True:
-                    a=0 
+                    a=0
+                    constants.Used_Sabotages += 1
+
 
             if Rocket_Button.collidepoint((bonk)):
                 if click==True:
                     b=0
+                    constants.Used_Sabotages += 1
                     
             if Mine1_Button.collidepoint((bonk)):
                 if Used_Num>=1 and click==True:
                     c=0
                     Used_Num-=1
+                    constants.Used_Sabotages += 1
 
             if Mine2_Button.collidepoint((bonk)):
                 if Used_Num>=1 and click==True:
                     d=0
                     Used_Num-=1
+                    constants.Used_Sabotages += 1
 
             if Mine3_Button.collidepoint((bonk)):
                 if Used_Num>=1 and click==True:
                     e=0
                     Used_Num-=1
+                    constants.Used_Sabotages += 1
 
             if Strike_Button.collidepoint((bonk)):
                 if click==True:
-                    f=0 
+                    f=0
+                    constants.Used_Sabotages += 1 
 
             if event.type==KEYDOWN:
                     if event.key==K_ESCAPE:
@@ -169,18 +176,30 @@ def Lvl1_pressed():
         
         if Ingame_Objects.fin_line_collision(Player_Hitbox):
             Remaining_Health= constants.Health
+            Hits = constants.Hits
+            Sabotages = constants.Used_Sabotages
+
             constants.Health = 20
+            constants.Hits = 0
+            constants.Used_Sabotages = 0
             Player_Hitbox.x, Player_Hitbox.y = 250,590
+
             winner = "Player 1 "
-            finscrn.fin(winner,Remaining_Health)
+            finscrn.fin(winner,Remaining_Health,Sabotages, Hits)
             
             
         if constants.Health <= 0:
-            Remaining_Health= 0
+            Remaining_Health= constants.Health
+            Hits = constants.Hits
+            Sabotages = constants.Used_Sabotages
+
             constants.Health = 20
+            constants.Hits = 0
+            constants.Used_Sabotages = 0
             Player_Hitbox.x, Player_Hitbox.y = 250,590
+
             winner = "Player 2 "
-            finscrn.fin(winner,Remaining_Health) 
+            finscrn.fin(winner,Remaining_Health,Sabotages, Hits)
 
         pygame.display.update()
         constants.Clock.tick(constants.FPS)

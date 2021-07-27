@@ -5,7 +5,8 @@ from Functions_Constants import constants , Transition_moving, mfunc
 pygame.font.init()  
 pygame.init()
 
-
-
+BackgroundSound = pygame.mixer.Sound(os.path.join('Sounds', 'BoY.mp3'))
+BackgroundSound.play(-1)
+# BackgroundSound.set_volume(0.5)
 
 mfunc.main_menu()

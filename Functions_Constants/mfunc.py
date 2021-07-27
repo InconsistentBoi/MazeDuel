@@ -3,8 +3,12 @@ from pygame.locals import *
 from Functions_Constants import constants , Transition_moving, login , Level1 , Ingame_Objects, counters
 
 def main_menu():
+
+    
+
     while True:
             
+
             constants.WIN.blit(constants.Background,(0,0))
 
             mx,my=pygame.mouse.get_pos()
@@ -62,11 +66,17 @@ def play_pressed():
     Transition_moving.fadetoscreen(constants.Width,constants.Height)
     while running:
         click = False
+
         constants.WIN.blit(constants.Blank_BG,(0,0))
+        button_back=constants.WIN.blit(constants.Image_back,(10,5))
         button_lvl1=constants.WIN.blit(constants.Lvl1_button_enlarged,(200,285))
 
         mx,my=pygame.mouse.get_pos()
         bonk=(mx,my)
+
+        if button_back.collidepoint((bonk)):
+            button_back=constants.WIN.blit(constants.Image_back_enlarged, (10,5))
+            button_lvl1=constants.WIN.blit(constants.Lvl1_button_enlarged,(200,285))
 
 
 
@@ -80,17 +90,22 @@ def play_pressed():
             if button_lvl1.collidepoint((bonk)):
                 if click==True:
                     Level1.Lvl1_pressed()
-            
-            if event.type==KEYDOWN:
-                if event.key==K_ESCAPE:
+
+            if button_back.collidepoint((bonk)):
+                if click==True:
                     Transition_moving.fadetoblack(constants.Width,constants.Height)
                     Transition_moving.fadetoscreen(constants.Width,constants.Height)
                     running=False
 
+            if event.type==KEYDOWN:
+                # if event.key==K_ESCAPE:
+                #     Transition_moving.fadetoblack(constants.Width,constants.Height)
+                #     Transition_moving.fadetoscreen(constants.Width,constants.Height)
+                #     running=False
+                pass
+
         pygame.display.update()
         constants.Clock.tick(constants.FPS)
-        # keys_pressed=pygame.key.get_pressed()
-        # Ingame_Objects.player_movement(keys_pressed)
 
 
 def options_pressed():
@@ -136,10 +151,12 @@ def options_pressed():
             
 
             if event.type==KEYDOWN:
-                if event.key==K_ESCAPE:
-                    Transition_moving.fadetoblack(constants.Width,constants.Height)
-                    Transition_moving.fadetoscreen(constants.Width,constants.Height)
-                    running=False
+                # if event.key==K_ESCAPE:
+                #     Transition_moving.fadetoblack(constants.Width,constants.Height)
+                #     Transition_moving.fadetoscreen(constants.Width,constants.Height)
+                #     running=False
+                pass
+            
             if event.type==MOUSEBUTTONDOWN:
                     if event.button==1:
                         click=True
@@ -200,10 +217,11 @@ def login_pressed():
                     running=False
 
             if event.type==KEYDOWN:
-                if event.key==K_ESCAPE:
-                    Transition_moving.fadetoblack(constants.Width,constants.Height)
-                    Transition_moving.fadetoscreen(constants.Width,constants.Height)
-                    running=False
+                # if event.key==K_ESCAPE:
+                #     Transition_moving.fadetoblack(constants.Width,constants.Height)
+                #     Transition_moving.fadetoscreen(constants.Width,constants.Height)
+                #     running=False
+                pass
             for i in range(4):
                 login.input(event, i)
             
