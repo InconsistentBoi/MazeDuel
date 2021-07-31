@@ -1,6 +1,6 @@
 import pygame,sys,os
 from pygame.locals import *
-from Functions_Constants import constants , Transition_moving, login , Level1 , Ingame_Objects, counters
+from Functions_Constants import constants , Transition_moving, login , Level , Ingame_Objects, counters
 
 def main_menu():
 
@@ -98,7 +98,7 @@ def play_pressed():
                     Button_sound= pygame.mixer.Sound(os.path.join('Sounds', 'Button_Click.mp3'))
                     Button_sound.play()
                     Button_sound.set_volume(0.1)
-                    Level1.Lvl1_pressed()
+                    Level.Lvl_pressed(constants.L1_Layout)
 
             if button_back.collidepoint((bonk)):
                 if click==True:

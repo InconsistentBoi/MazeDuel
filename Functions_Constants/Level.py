@@ -3,18 +3,17 @@ from pygame.locals import *
 from Functions_Constants import constants , Transition_moving , Ingame_Objects, counters, finscrn
 
 
-def Lvl1_pressed():
+def Lvl_pressed(Level):
     running=True
 
-    # BackgroundSound = pygame.mixer.Sound(os.path.join('Sounds', 'Bruh.mp3'))
-    # BackgroundSound.play(-1)
+   
 
     Transition_moving.fadetoblack(constants.Width,constants.Height)
     Transition_moving.fadetoscreen(constants.Width,constants.Height)
 
 
 
-    Player_Hitbox=pygame.Rect(250,590,20,20)
+    Player_Hitbox=pygame.Rect(250,590,26,26)
     Laser_Hitbox=pygame.Rect(Player_Hitbox.x,720,5,50)
     Rocket_Hitbox = pygame.Rect(Player_Hitbox.x,720,50,50)
     Strike_Hitbox=pygame.Rect(0,720,200,200)
@@ -24,7 +23,7 @@ def Lvl1_pressed():
     start_ticks=pygame.time.get_ticks()
     while running:
         counters.seconds=(pygame.time.get_ticks()-start_ticks)/1000
-        constants.WIN.blit(constants.L1_Layout,(0,0))
+        constants.WIN.blit(Level,(0,0))
         click=False
 
         if a==0:
@@ -79,7 +78,7 @@ def Lvl1_pressed():
         mx,my=pygame.mouse.get_pos()
         bonk=(mx,my)
 
-        Maze=constants.WIN.blit(constants.Level1,(90,90))   
+        # Maze=constants.WIN.blit(constants.Level1,(90,90))   
         
         Laser_Button = constants.WIN.blit(constants.Laser_button,(1030,90))
 
@@ -116,7 +115,7 @@ def Lvl1_pressed():
             if event.type==MOUSEBUTTONDOWN:
                     if event.button==1:
                         click=True
-                        #print(bonk)
+                        print(bonk)
             if Laser_Button.collidepoint((bonk)):
                 if click==True:
                     if a==1:
@@ -125,7 +124,7 @@ def Lvl1_pressed():
                         Laser_sound.set_volume(0.05)
                         constants.Used_Sabotages += 1
                     a=0
-                    #constants.Used_Sabotages += 1
+                    
 
             if Rocket_Button.collidepoint((bonk)):
                 if click==True:
@@ -135,22 +134,22 @@ def Lvl1_pressed():
                         Rocket_sound.set_volume(0.05)
                         constants.Used_Sabotages += 1
                     b=0
-                    #constants.Used_Sabotages += 1
+                    
                     
             if Mine1_Button.collidepoint((bonk)):
-                if Used_Num>=1 and click==True:
+                if Used_Num>=1 and click==True and c==1:
                     c=0
                     Used_Num-=1
                     constants.Used_Sabotages += 1
 
             if Mine2_Button.collidepoint((bonk)):
-                if Used_Num>=1 and click==True:
+                if Used_Num>=1 and click==True and d==1:
                     d=0
                     Used_Num-=1
                     constants.Used_Sabotages += 1
 
             if Mine3_Button.collidepoint((bonk)):
-                if Used_Num>=1 and click==True:
+                if Used_Num>=1 and click==True and e==1:
                     e=0
                     Used_Num-=1
                     constants.Used_Sabotages += 1

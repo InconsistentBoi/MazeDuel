@@ -65,7 +65,7 @@ Level1=scale("Level1.png",(820,540))
 
 #ingame objects
 Player_Image_Up=scale("Playerchar.png",(26,26))
-Player_Image_Right=rotate("Playerchar.png",(26,26), -90)
+Player_Image_Right=rotate("Playerchar.png",(26,26), 270)
 Player_Image_Down=rotate("Playerchar.png",(26,26), 180)
 Player_Image_Left=rotate("Playerchar.png",(26,26), 90)
 Player_Image=Player_Image_Up
