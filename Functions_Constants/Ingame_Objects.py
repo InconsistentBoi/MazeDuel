@@ -86,6 +86,9 @@ def laser_collision(Player_Hitbox,Laser_Hitbox):
 
 def rocket_collision(Player_Hitbox,Rocket_Hitbox):
     if Player_Hitbox.colliderect(Rocket_Hitbox):
+        Explosion_sound= pygame.mixer.Sound(os.path.join('Sounds', 'Explosion_Sound.mp3'))
+        Explosion_sound.play()
+        Explosion_sound.set_volume(0.2)
         constants.Health -= 10
         constants.Hits += 1
         Rocket_Hitbox.x, Rocket_Hitbox.y = 1280, 0
@@ -94,18 +97,28 @@ def rocket_collision(Player_Hitbox,Rocket_Hitbox):
 
 def landmine1_collision(Player_Hitbox,Landmine1_Hitbox):
     if Player_Hitbox.colliderect(Landmine1_Hitbox):
+        Explosion_sound= pygame.mixer.Sound(os.path.join('Sounds', 'Explosion_Sound.mp3'))
+        Explosion_sound.play()
+        Explosion_sound.set_volume(0.2)
         constants.Health -= 11
         constants.Hits += 1 
         Player_Hitbox.x, Player_Hitbox.y = 250, 590
+        
 
 def landmine2_collision(Player_Hitbox,Landmine2_Hitbox):
     if Player_Hitbox.colliderect(Landmine2_Hitbox):
+        Explosion_sound= pygame.mixer.Sound(os.path.join('Sounds', 'Explosion_Sound.mp3'))
+        Explosion_sound.play()
+        Explosion_sound.set_volume(0.2)
         constants.Health -= 15
         constants.Hits += 1 
         Player_Hitbox.x, Player_Hitbox.y = 250, 590
 
 def landmine3_collision(Player_Hitbox,Landmine3_Hitbox):
     if Player_Hitbox.colliderect(Landmine3_Hitbox):
+        Explosion_sound= pygame.mixer.Sound(os.path.join('Sounds', 'Explosion_Sound.mp3'))
+        Explosion_sound.play()
+        Explosion_sound.set_volume(0.2)
         constants.Health -= 15
         constants.Hits += 1 
         Player_Hitbox.x, Player_Hitbox.y = 250, 590
