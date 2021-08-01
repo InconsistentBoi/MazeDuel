@@ -17,6 +17,7 @@ WHITE = (255,255,255)
 RED= (255,0,0)
 BLUE=(0,0,255)
 VEL= 2
+ANGLE = 0
 
 Health = 20
 Used_Sabotages = 0
@@ -61,7 +62,9 @@ temp_button = scale(fname, (180,80))
 
 Lvl1_button="L1button.png"
 Lvl1_button_enlarged=scale(Lvl1_button,(360,180))
-Level1=scale("Level1.png",(820,540))
+
+Lvl2_button="L2button.png"
+Lvl2_button_enlarged=scale(Lvl2_button,(360,180))
 
 #ingame objects
 Player_Image_Up=scale("Playerchar.png",(26,26))
@@ -77,13 +80,18 @@ Player_Image_SE = rotate("Playerchar.png",(26,26), -135)
 
 
 Level_BG=scale("Level_BG.png",(Width,Height))
-Laser_button=scale("Laserbutton.png",(220,120))
+
+
+L1_Layout = scale("L1_Layout.png",(Width,Height))
+L2_Layout = scale("L2_Layout.png",(Width,Height))
 
 Laser=scale("laserbeam.png",(9,69))
-L1_Layout = scale("L1_Layout.png",(Width,Height))
+Laser_button=scale("Laserbutton.png",(220,120))
 
 Rocket=scale("rocket.png",(70,200))
 Rocket_button=scale("Rocketbutton.png",(220,120))
+
+
 
 Active_Landmine=scale("activelandmine.png",(45,45))
 

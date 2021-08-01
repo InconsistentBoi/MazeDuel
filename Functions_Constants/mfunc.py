@@ -76,6 +76,7 @@ def play_pressed():
         constants.WIN.blit(constants.Blank_BG,(0,0))
         button_back=constants.WIN.blit(constants.Image_back,(10,5))
         button_lvl1=constants.WIN.blit(constants.Lvl1_button_enlarged,(200,285))
+        button_lvl2=constants.WIN.blit(constants.Lvl2_button_enlarged,(600,285))
 
         mx,my=pygame.mouse.get_pos()
         bonk=(mx,my)
@@ -99,6 +100,13 @@ def play_pressed():
                     Button_sound.play()
                     Button_sound.set_volume(0.1)
                     Level.Lvl_pressed(constants.L1_Layout)
+            
+            if button_lvl2.collidepoint((bonk)):
+                if click==True:
+                    Button_sound= pygame.mixer.Sound(os.path.join('Sounds', 'Button_Click.mp3'))
+                    Button_sound.play()
+                    Button_sound.set_volume(0.1)
+                    Level.Lvl_pressed(constants.L2_Layout)
 
             if button_back.collidepoint((bonk)):
                 if click==True:

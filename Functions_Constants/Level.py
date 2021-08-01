@@ -13,7 +13,7 @@ def Lvl_pressed(Level):
 
 
 
-    Player_Hitbox=pygame.Rect(250,590,26,26)
+    Player_Hitbox=pygame.Rect(250,590,20,20)
     Laser_Hitbox=pygame.Rect(Player_Hitbox.x,720,5,50)
     Rocket_Hitbox = pygame.Rect(Player_Hitbox.x,720,50,50)
     Strike_Hitbox=pygame.Rect(0,720,200,200)
@@ -37,23 +37,43 @@ def Lvl_pressed(Level):
             Rocket_Hitbox.x=Player_Hitbox.x 
     
         if c==0:
-            Landmine1_Hitbox = pygame.Rect(393,365,40,40)
-            Active_Landmine1=constants.WIN.blit(constants.Active_Landmine,(Landmine1_Hitbox.x,Landmine1_Hitbox.y))
+            if Level == constants.L1_Layout:
+                Landmine1_Hitbox = pygame.Rect(393,365,40,40)
+                Active_Landmine1=constants.WIN.blit(constants.Active_Landmine,(Landmine1_Hitbox.x,Landmine1_Hitbox.y))
+
+            if Level == constants.L2_Layout:
+                Landmine1_Hitbox = pygame.Rect(230,145,60,60)
+                Active_Landmine1=constants.WIN.blit(constants.scale("activelandmine.png",(60,60)),(Landmine1_Hitbox.x,Landmine1_Hitbox.y))
+            
+            
             Ingame_Objects.landmine1_collision(Player_Hitbox,Landmine1_Hitbox)
         else:
             pass
         
         if d==0:
-            Landmine2_Hitbox = pygame.Rect(790,565,40,40)
-            Active_Landmine2=constants.WIN.blit(constants.Active_Landmine,(Landmine2_Hitbox.x,Landmine2_Hitbox.y))
-            
+            if Level == constants.L1_Layout:
+                Landmine2_Hitbox = pygame.Rect(790,565,40,40)
+                Active_Landmine2=constants.WIN.blit(constants.Active_Landmine,(Landmine2_Hitbox.x,Landmine2_Hitbox.y))
+
+            if Level == constants.L2_Layout:
+                Landmine2_Hitbox = pygame.Rect(396,292,65,65)
+                Active_Landmine2=constants.WIN.blit(constants.scale("activelandmine.png",(80,80)),(Landmine2_Hitbox.x,Landmine2_Hitbox.y))
+                
+                        
             Ingame_Objects.landmine2_collision(Player_Hitbox,Landmine2_Hitbox)   
         else:
             pass
             
         if e==0:
-            Landmine3_Hitbox = pygame.Rect(710,270,40,40)
-            Active_Landmine3=constants.WIN.blit(constants.Active_Landmine,(Landmine3_Hitbox.x,Landmine3_Hitbox.y))
+            if Level == constants.L1_Layout:
+                Landmine3_Hitbox = pygame.Rect(710,270,40,40)
+                Active_Landmine3=constants.WIN.blit(constants.Active_Landmine,(Landmine3_Hitbox.x,Landmine3_Hitbox.y))
+
+            if Level == constants.L2_Layout:
+                Landmine3_Hitbox = pygame.Rect(406,487,40,40)
+                Active_Landmine3=constants.WIN.blit(constants.scale("activelandmine.png",(70,70)),(Landmine3_Hitbox.x,Landmine3_Hitbox.y))
+
+
             Ingame_Objects.landmine3_collision(Player_Hitbox,Landmine3_Hitbox)
         else:
             pass
@@ -115,7 +135,7 @@ def Lvl_pressed(Level):
             if event.type==MOUSEBUTTONDOWN:
                     if event.button==1:
                         click=True
-                        print(bonk)
+                        # print(bonk)
             if Laser_Button.collidepoint((bonk)):
                 if click==True:
                     if a==1:
@@ -167,6 +187,10 @@ def Lvl_pressed(Level):
                         running=False
                         
         
+        if Level == constants.L2_Layout:
+            Spin = constants.rotate("LAINAH.png",(10,85),constants.ANGLE)
+            constants.WIN.blit(Spin,(765 - Spin.get_width()/2,355 - Spin.get_width()/2))
+            constants.ANGLE += 3
 
 
         keys_pressed=pygame.key.get_pressed()
