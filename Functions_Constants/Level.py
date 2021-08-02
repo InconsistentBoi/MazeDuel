@@ -190,7 +190,7 @@ def Lvl_pressed(Level):
         if Level == constants.L2_Layout:
             Spin = constants.rotate("LAINAH.png",(10,85),constants.ANGLE)
             constants.WIN.blit(Spin,(765 - Spin.get_width()/2,355 - Spin.get_width()/2))
-            constants.ANGLE += 3
+            constants.ANGLE += 3.5
 
 
         keys_pressed=pygame.key.get_pressed()
