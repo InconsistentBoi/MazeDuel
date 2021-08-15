@@ -66,6 +66,9 @@ Lvl1_button_enlarged=scale(Lvl1_button,(360,180))
 Lvl2_button="L2button.png"
 Lvl2_button_enlarged=scale(Lvl2_button,(360,180))
 
+Lvl3_button="L3button.png"
+Lvl3_button_enlarged=scale(Lvl3_button,(360,180))
+
 Music1_button = scale("MusicButton1.png",(normal_size))
 Music1_button_enlarged = scale("MusicButton1.png",(enlarged_size))
 Music2_button = scale("MusicButton2.png",(normal_size))
@@ -88,6 +91,7 @@ Level_BG=scale("Level_BG.png",(Width,Height))
 
 L1_Layout = scale("L1_Layout.png",(Width,Height))
 L2_Layout = scale("L2_Layout.png",(Width,Height))
+L3_Layout = scale("L3_Layout.png",(Width,Height))
 
 Laser=scale("laserbeam.png",(9,69))
 Laser_button=scale("Laserbutton.png",(220,120))

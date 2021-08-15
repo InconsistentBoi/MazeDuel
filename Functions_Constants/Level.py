@@ -16,8 +16,8 @@ def Lvl_pressed(Level):
     Player_Hitbox=pygame.Rect(250,590,20,20)
     Laser_Hitbox=pygame.Rect(Player_Hitbox.x,720,5,50)
     Rocket_Hitbox = pygame.Rect(Player_Hitbox.x,720,50,50)
-    Strike_Hitbox=pygame.Rect(0,720,200,200)
-    
+    # Strike_Hitbox=pygame.Rect(0,720,200,200)
+    linestate = 0
     a,b,c,d,e=(1,1,1,1,1)
     Used_Num=2
     start_ticks=pygame.time.get_ticks()
@@ -45,6 +45,9 @@ def Lvl_pressed(Level):
                 Landmine1_Hitbox = pygame.Rect(230,145,60,60)
                 Active_Landmine1=constants.WIN.blit(constants.scale("activelandmine.png",(60,60)),(Landmine1_Hitbox.x,Landmine1_Hitbox.y))
             
+            if Level == constants.L3_Layout:
+                Landmine1_Hitbox = pygame.Rect(577,480,64,64)
+                Active_Landmine1=constants.WIN.blit(constants.scale("activelandmine.png",(64,64)),(Landmine1_Hitbox.x,Landmine1_Hitbox.y))
             
             Ingame_Objects.landmine1_collision(Player_Hitbox,Landmine1_Hitbox)
         else:
@@ -56,9 +59,12 @@ def Lvl_pressed(Level):
                 Active_Landmine2=constants.WIN.blit(constants.Active_Landmine,(Landmine2_Hitbox.x,Landmine2_Hitbox.y))
 
             if Level == constants.L2_Layout:
-                Landmine2_Hitbox = pygame.Rect(396,292,65,65)
+                Landmine2_Hitbox = pygame.Rect(396,292,80,80)
                 Active_Landmine2=constants.WIN.blit(constants.scale("activelandmine.png",(80,80)),(Landmine2_Hitbox.x,Landmine2_Hitbox.y))
                 
+            if Level == constants.L3_Layout:
+                Landmine2_Hitbox = pygame.Rect(374,400,75,75)
+                Active_Landmine2=constants.WIN.blit(constants.scale("activelandmine.png",(75,75)),(Landmine2_Hitbox.x,Landmine2_Hitbox.y))    
                         
             Ingame_Objects.landmine2_collision(Player_Hitbox,Landmine2_Hitbox)   
         else:
@@ -70,10 +76,13 @@ def Lvl_pressed(Level):
                 Active_Landmine3=constants.WIN.blit(constants.Active_Landmine,(Landmine3_Hitbox.x,Landmine3_Hitbox.y))
 
             if Level == constants.L2_Layout:
-                Landmine3_Hitbox = pygame.Rect(406,487,40,40)
+                Landmine3_Hitbox = pygame.Rect(406,487,70,70)
                 Active_Landmine3=constants.WIN.blit(constants.scale("activelandmine.png",(70,70)),(Landmine3_Hitbox.x,Landmine3_Hitbox.y))
 
-
+            if Level == constants.L3_Layout:
+                Landmine3_Hitbox = pygame.Rect(365,254,74,75)
+                Active_Landmine3=constants.WIN.blit(constants.scale("activelandmine.png",(74,75)),(Landmine3_Hitbox.x,Landmine3_Hitbox.y))
+                
             Ingame_Objects.landmine3_collision(Player_Hitbox,Landmine3_Hitbox)
         else:
             pass
@@ -104,8 +113,6 @@ def Lvl_pressed(Level):
 
         Rocket_Button = constants.WIN.blit(constants.Rocket_button,(1030,240))
 
-        
-        
         Player=constants.WIN.blit(constants.Player_Image,(Player_Hitbox.x,Player_Hitbox.y))
 
         Mine_Button = constants.WIN.blit(constants.Mine_button,(1030,390))
@@ -116,7 +123,7 @@ def Lvl_pressed(Level):
 
         Mine3_Button = constants.WIN.blit(constants.Mine3_button,(1190,455))
 
-        Strike_Button= constants.WIN.blit(constants.Strike_button, (1030,540))
+        # Strike_Button= constants.WIN.blit(constants.Strike_button, (1030,540))
 
         Laser = constants.WIN.blit(constants.Laser,(Laser_Hitbox.x,Laser_Hitbox.y)) 
 
@@ -125,7 +132,7 @@ def Lvl_pressed(Level):
         # Strike = constants.WIN.blit(constants.Strike,(Strike_Hitbox.x,Strike_Hitbox.y))
         
         counters.RunningTime()
-    
+
     
 
         for event in pygame.event.get():    
@@ -135,7 +142,7 @@ def Lvl_pressed(Level):
             if event.type==MOUSEBUTTONDOWN:
                     if event.button==1:
                         click=True
-                        # print(bonk)
+                        print(bonk)
             if Laser_Button.collidepoint((bonk)):
                 if click==True:
                     if a==1:
@@ -174,10 +181,10 @@ def Lvl_pressed(Level):
                     Used_Num-=1
                     constants.Used_Sabotages += 1
 
-            if Strike_Button.collidepoint((bonk)):
-                if click==True:
-                    f=0
-                    constants.Used_Sabotages += 1 
+            # if Strike_Button.collidepoint((bonk)):
+            #     if click==True:
+            #         f=0
+            #         constants.Used_Sabotages += 1 
 
             if event.type==KEYDOWN:
                     if event.key==K_ESCAPE:
@@ -188,9 +195,30 @@ def Lvl_pressed(Level):
                         
         
         if Level == constants.L2_Layout:
-            Spin = constants.rotate("LAINAH.png",(10,85),constants.ANGLE)
+            Spin = constants.rotate("Line.png",(10,85),constants.ANGLE)
             constants.WIN.blit(Spin,(765 - Spin.get_width()/2,355 - Spin.get_width()/2))
             constants.ANGLE += 3.5
+
+        if Level == constants.L3_Layout:
+            
+            Line1 = constants.rotate("Line.png",(10,85),90)
+            Line2 = constants.rotate("Line.png", (10,82),-45)
+            Line3 = constants.rotate("Line.png", (12,50),0)
+
+
+            second = int(counters.seconds)
+            if second%2==0:
+                constants.WIN.blit(Line1,(144, 553))
+                constants.WIN.blit(Line2,(665, 355))
+                constants.WIN.blit(Line3,(543, 230))
+
+            if second%2==1:
+                constants.WIN.blit(Line1,(388, 553))
+                constants.WIN.blit(Line2,(600, 415))
+                constants.WIN.blit(Line3,(543, 285))
+                
+
+            
 
 
         keys_pressed=pygame.key.get_pressed()
@@ -220,7 +248,7 @@ def Lvl_pressed(Level):
             finscrn.fin(winner,Remaining_Health,Sabotages, Hits)
             
             
-        if constants.Health <= 0:
+        if constants.Health <= 0: 
             Remaining_Health= constants.Health
             Hits = constants.Hits
             Sabotages = constants.Used_Sabotages
