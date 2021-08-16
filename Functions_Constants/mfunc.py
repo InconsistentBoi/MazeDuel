@@ -246,9 +246,10 @@ def options_pressed():
                     Button_sound.play()
                     Button_sound.set_volume(0.1)
                     
+                    pygame.mixer.stop()
                     Track1.play(-1)
                     Track1.set_volume(0.1)
-                    Track2.stop()
+                    #Track2.stop()
                     
                     t1check = 0
                     t2check = 1
@@ -258,9 +259,10 @@ def options_pressed():
                     Button_sound.play()
                     Button_sound.set_volume(0.1)
 
+                    pygame.mixer.stop()
                     Track2.play(-1)
                     Track2.set_volume(0.1)
-                    Track1.stop()
+                    #Track1.stop()
                     
                     t2check = 0
                     t1check = 1
