@@ -38,9 +38,12 @@ def output(output_num):
 
     text_surface = constants.base_font[output_num].render(render_text,True,(255,242,0))
     constants.WIN.blit(text_surface,(constants.input_rect[output_num].x + 5, constants.input_rect[output_num].y + 5))
-    pygame.draw.rect(constants.WIN,constants.colour[output_num],constants.input_rect[output_num],4) 
+    pygame.draw.rect(constants.WIN,constants.colour[output_num],constants.input_rect[output_num],2) 
 
 def db_input():
-    for i in range(0,4,2):
-        SQLtest.sql_input(constants.user_text[i], constants.user_text[i+1])
+    try:
+        for i in range(2):
+            SQLtest.sql_input(constants.user_text[i], constants.user_text[i+1])
+    except:
+        pass
 

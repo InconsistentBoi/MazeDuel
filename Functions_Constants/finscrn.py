@@ -1,6 +1,6 @@
 import pygame,sys,os
 from pygame.locals import *
-from Functions_Constants import constants , Transition_moving, login , Level , Ingame_Objects, mfunc, counters
+from Functions_Constants import constants , Transition_moving, register , Level , Ingame_Objects, mfunc, counters
 
 def fin(winner, Health, Sabotages, Hits):
     

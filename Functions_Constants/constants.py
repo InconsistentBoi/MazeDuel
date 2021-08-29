@@ -50,9 +50,9 @@ Image_exit_enlarged = scale(fname, (enlarged_size))
 fname="Button_Fullscreen.png"
 Image_fullscreen = scale(fname, (normal_size))
 Image_fullscreen_enlarged = scale(fname, (enlarged_size))
-fname="Button_Login.png"
-Image_login = scale(fname, (normal_size))
-Image_login_enlarged = scale(fname, (enlarged_size))
+fname="Button_Register.png"
+Image_register = scale(fname, (normal_size))
+Image_register_enlarged = scale(fname, (enlarged_size))
 fname="Button_Back.png"
 Image_back = scale(fname, (180,80))
 Image_back_enlarged = scale(fname, (190,90))
@@ -116,14 +116,17 @@ Pause_Screen= scale("Pause.png",(Width,Height))
 
 Fin2Menu_Button = scale("Button_Menu.png", (200,75))
 FinBG = scale("FinBG.png", (1270,385))
+
+
 #register screen
+
 input_rect = [pygame.Rect(200,300,335,45), pygame.Rect(200,600,335,45), pygame.Rect(650,300,335,45), pygame.Rect(650,600,335,45)]
-active = [False, False, False, False]
-charcount = [0, 0, 0, 0]
-user_text = ['', '', '', '']
+active = [False, False]
+charcount = [0, 0]
+user_text = ['', '']
 
 rectcol_a = pygame.Color('white')
 rectcol_p = pygame.Color('lightskyblue3')
 base_font = [pygame.font.Font(None, 45), pygame.font.Font(None, 40), pygame.font.Font(None, 45), pygame.font.Font(None, 40)]
-colour = [rectcol_p, rectcol_p, rectcol_p, rectcol_p]
+colour = [rectcol_p, rectcol_p]
 
