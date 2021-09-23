@@ -1,6 +1,6 @@
 import pygame,sys,os
 from pygame.locals import *
-from Functions_Constants import constants , Transition_moving, register , Level , Ingame_Objects, counters
+from Functions_Constants import constants , Transition_moving, register , Level , Ingame_Objects, counters , login
 
 def main_menu():
 
@@ -152,6 +152,7 @@ def options_pressed():
         button_fullscreen=constants.WIN.blit(constants.Image_fullscreen,(35,400))
         button_register=constants.WIN.blit(constants.Image_register,(35,575))
         button_back=constants.WIN.blit(constants.Image_back,(10,5))
+        button_login = constants.WIN.blit(constants.Image_login,(35,225))
 
         button_music1 = constants.WIN.blit(constants.Music1_button,(900,400))
         button_music2 = constants.WIN.blit(constants.Music2_button,(900,575))
@@ -182,8 +183,10 @@ def options_pressed():
             constants.WIN.blit(constants.Image_back_enlarged,(10,5))
             button_music1 = constants.WIN.blit(constants.Music1_button,(900,400))
             button_music2 = constants.WIN.blit(constants.Music2_button,(900,575))
-            
-#needs to have button size increase
+        '''login button size increase'''
+        # if button_login.collidepoint(bonk):
+        #     constants.WIN.blit(constants.Image_login_enlarged,35,225)  
+
         if button_music1.collidepoint((bonk)):
             constants.WIN.blit(constants.Blank_BG,(0,0))
             constants.WIN.blit(constants.Image_fullscreen,(35,400))
@@ -230,7 +233,7 @@ def options_pressed():
                     Button_sound= pygame.mixer.Sound(os.path.join('Sounds', 'Button_Click.mp3'))
                     Button_sound.play()
                     Button_sound.set_volume(0.1)
-                    register_pressed()
+                    register_pressed()                  
             if button_back.collidepoint((bonk)):
                 if click==True:
                     Button_sound= pygame.mixer.Sound(os.path.join('Sounds', 'Button_Click.mp3'))
@@ -239,6 +242,14 @@ def options_pressed():
                     Transition_moving.fadetoblack(constants.Width,constants.Height)
                     Transition_moving.fadetoscreen(constants.Width,constants.Height)
                     running=False
+            
+            if button_login.collidepoint((bonk)):
+                if click==True:
+                    Button_sound= pygame.mixer.Sound(os.path.join('Sounds', 'Button_Click.mp3'))
+                    Button_sound.play()
+                    Button_sound.set_volume(0.1)
+                    login_pressed()
+
 
             if button_music1.collidepoint((bonk)):
                 if click == True and t1check==1:
@@ -284,7 +295,7 @@ def register_pressed():
         constants.WIN.blit(constants.Blank_BG,(0,0))
         button_back=constants.WIN.blit(constants.Image_back,(10,5))
 
-        button_signin = constants.WIN.blit(constants.temp_button,(600,200))
+        button_createacc = constants.WIN.blit(constants.temp_button,(600,200))
 
         
 
@@ -319,7 +330,7 @@ def register_pressed():
             for i in range(2):
                 register.input(event, i)
             
-            if button_signin.collidepoint((bonk)):
+            if button_createacc.collidepoint((bonk)):
                 if click == True:
                     register.db_input()
                     # Error_Hitbox = pygame.Rect(10,10,5,50)
@@ -332,6 +343,68 @@ def register_pressed():
         
         for i in range(2):
             register.output(i)
+
+        pygame.display.update()
+        constants.Clock.tick(constants.FPS)
+
+def login_pressed():
+    running=True
+    while running:
+        click=False
+        constants.WIN.blit(constants.Blank_BG,(0,0))
+        button_back=constants.WIN.blit(constants.Image_back,(10,5))
+
+        button_signin = constants.WIN.blit(constants.temp_button,(600,200))
+
+        
+
+        counters.draw_text("haha noob",constants.font,(255,255,255),constants.WIN, Error_Hitbox.x,Error_Hitbox.y)
+
+
+        mx,my=pygame.mouse.get_pos()
+        bonk=(mx,my)
+
+
+        for event in pygame.event.get():
+            if event.type==QUIT:
+                pygame.QUIT
+                sys.exit()
+
+            if event.type==MOUSEBUTTONDOWN:
+                    if event.button==1:
+                        click=True
+
+            if button_back.collidepoint((bonk)):
+                if click==True:
+
+                    Transition_moving.fadetoblack(constants.Width,constants.Height)
+                    Transition_moving.fadetoscreen(constants.Width,constants.Height)
+                    running=False
+
+            if event.type==KEYDOWN:
+                # if event.key==K_ESCAPE:
+                #     Transition_moving.fadetoblack(constants.Width,constants.Height)
+                #     Transition_moving.fadetoscreen(constants.Width,constants.Height)
+                #     running=False
+                pass
+            for i in range(4):
+                login.input(event, i)
+            
+            if button_signin.collidepoint((bonk)):
+                if click == True:
+                    global Players
+                    Players = login.db_log()
+                    
+                    # Error_Hitbox = pygame.Rect(10,10,5,50)
+        
+        for i in range(4):
+            if constants.active[i]:
+                constants.colour[i] = constants.rectcol_a
+            else:
+                constants.colour[i] = constants.rectcol_p
+        
+        for i in range(4):
+            login.output(i)
         
         pygame.display.update()
         constants.Clock.tick(constants.FPS)

@@ -31,7 +31,7 @@ def fin(winner, Health, Sabotages, Hits):
         
         counters.draw_text("Health remaining: " + str(Health), constants.Newfont, (255,255,255), constants.WIN, 80, 450)
         
-        counters.draw_text("Damage done: " + str(20 - Health), constants.Newfont, (255,255,255), constants.WIN, 950, 450)
+        counters.draw_text("Damage done: " + str(constants.Health - Health), constants.Newfont, (255,255,255), constants.WIN, 950, 450)
 
         counters.PlayTime()
 
@@ -48,7 +48,6 @@ def fin(winner, Health, Sabotages, Hits):
             if event.type==MOUSEBUTTONDOWN:
                 if event.button==1:
                     click=True
-                    print(bonk)
             # if event.type==KEYDOWN:
             #         if event.key==K_ESCAPE:
             #             running=False

@@ -1,6 +1,8 @@
 import pygame,sys,os
 from pygame.locals import *
 from Functions_Constants import constants , Transition_moving, mfunc, SQLtest
+#important
+'''input and output functions identical to register file'''
 
 def input(event, input_num):
     if event.type == pygame.MOUSEBUTTONDOWN:
@@ -39,10 +41,20 @@ def output(output_num):
     constants.WIN.blit(text_surface,(constants.input_rect[output_num].x + 5, constants.input_rect[output_num].y + 5))
     pygame.draw.rect(constants.WIN,constants.colour[output_num],constants.input_rect[output_num],2) 
 
-def db_input():
+
+
+def db_log():
     try:
-        for i in range(1):
-            SQLtest.sql_input(constants.user_text[i], constants.user_text[i+1])
+        PlayerList=[]
+        itercount = 0
+        for i in range(0,4,2):
+            itercount += 1
+            if SQLtest.sql_login(constants.user_text[i], constants.user_text[i+1]):
+                PlayerList.append(constants.user_text[i])
+                
+            else:
+                print('pass', itercount, 'wrong')
+        print(PlayerList)
+        return PlayerList
     except:
         pass
-

@@ -1,0 +1,19 @@
+Maze Duel 
+Made by Kritik Modawel and Sumukh Kumar Santhosh
+
+Resources used:
+Sound effects -
+	Button Click- https://www.youtube.com/watch?v=GT7loRHER5I
+	Explosion   - https://www.youtube.com/watch?v=oi61jbl6XQY
+	Laser Sound - https://www.youtube.com/watch?v=HZ7Awpt8u_E
+Music	      -
+	Tundra By Context Sensitive (https://youtu.be/Kcv92uxh4Zk)
+	**PLACEHOLDER TEXT**
+
+Research/Learning:
+
+Tech with Tim youtube channel  : https://www.youtube.com/channel/UC4JX40jDee_tINbkjycV4Sg
+DaFluffyPotato youtube channel : https://www.youtube.com/c/DaFluffyPotato
+Codemy.com youtube channel     : https://www.youtube.com/c/Codemycom
+Stack Overflow		       : https://stackoverflow.com/
+Pygame document web page       : https://www.pygame.org/docs/

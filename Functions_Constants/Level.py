@@ -1,6 +1,6 @@
 import pygame,sys,os
 from pygame.locals import *
-from Functions_Constants import constants , Transition_moving , Ingame_Objects, counters, finscrn
+from Functions_Constants import constants , Transition_moving , Ingame_Objects, counters, finscrn, login, mfunc
 
 
 def Lvl_pressed(Level):
@@ -142,7 +142,6 @@ def Lvl_pressed(Level):
             if event.type==MOUSEBUTTONDOWN:
                     if event.button==1:
                         click=True
-                        print(bonk)
             if Laser_Button.collidepoint((bonk)):
                 if click==True:
                     if a==1:
@@ -235,7 +234,7 @@ def Lvl_pressed(Level):
         counters.landmine_number(Used_Num)
         
         if Ingame_Objects.fin_line_collision(Player_Hitbox):
-            Remaining_Health= constants.Health
+            Remaining_Health = constants.Health
             Hits = constants.Hits
             Sabotages = constants.Used_Sabotages
 
@@ -245,11 +244,13 @@ def Lvl_pressed(Level):
             Player_Hitbox.x, Player_Hitbox.y = 250,590
 
             winner = "Player 1 "
+            win_user = 0
             finscrn.fin(winner,Remaining_Health,Sabotages, Hits)
-            
+            print('hi')
+            print(mfunc.Players[win_user], winner, Remaining_Health, Sabotages, Hits)
             
         if constants.Health <= 0: 
-            Remaining_Health= constants.Health
+            Remaining_Health = constants.Health
             Hits = constants.Hits
             Sabotages = constants.Used_Sabotages
 
@@ -259,8 +260,13 @@ def Lvl_pressed(Level):
             Player_Hitbox.x, Player_Hitbox.y = 250,590
 
             winner = "Player 2 "
+            win_user = 1
+            print('hi')
+            print(mfunc.Players)
+            print(winner,Remaining_Health,Sabotages, Hits)
+            print(mfunc.Players[win_user], winner,Remaining_Health,Sabotages, Hits )
             finscrn.fin(winner,Remaining_Health,Sabotages, Hits)
-
+            
         pygame.display.update()
         constants.Clock.tick(constants.FPS)
         
