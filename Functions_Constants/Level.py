@@ -1,6 +1,6 @@
 import pygame,sys,os
 from pygame.locals import *
-from Functions_Constants import constants , Transition_moving , Ingame_Objects, counters, finscrn, login, mfunc
+from Functions_Constants import constants , Transition_moving , Ingame_Objects, counters, finscrn, login, mfunc, SQLtest
 
 
 def Lvl_pressed(Level):
@@ -233,6 +233,7 @@ def Lvl_pressed(Level):
         counters.rocket_number(b)
         counters.landmine_number(Used_Num)
         
+
         if Ingame_Objects.fin_line_collision(Player_Hitbox):
             Remaining_Health = constants.Health
             Hits = constants.Hits
@@ -242,15 +243,19 @@ def Lvl_pressed(Level):
             constants.Hits = 0
             constants.Used_Sabotages = 0
             Player_Hitbox.x, Player_Hitbox.y = 250,590
-
+        
             winner = "Player 1 "
             win_user = 0
-            finscrn.fin(winner,Remaining_Health,Sabotages, Hits)
-            print('hi')
             print(mfunc.Players[win_user], winner, Remaining_Health, Sabotages, Hits)
+            for i in range (0,2):
+                exist = SQLtest.account_check(mfunc.Players[i])
+                SQLtest.stats_input(exist, mfunc.Players[i], win_user)
+
+            finscrn.fin(winner,Remaining_Health,Sabotages, Hits)
+            
             
         if constants.Health <= 0: 
-            Remaining_Health = constants.Health
+            Remaining_Health = 0
             Hits = constants.Hits
             Sabotages = constants.Used_Sabotages
 
@@ -261,12 +266,14 @@ def Lvl_pressed(Level):
 
             winner = "Player 2 "
             win_user = 1
-            print('hi')
-            print(mfunc.Players)
-            print(winner,Remaining_Health,Sabotages, Hits)
             print(mfunc.Players[win_user], winner,Remaining_Health,Sabotages, Hits )
+            for i in range (0,2):
+                SQLtest.stats_input(SQLtest.account_check(mfunc.Players[i]), mfunc.Players[i], win_user)
             finscrn.fin(winner,Remaining_Health,Sabotages, Hits)
             
+
+        
+
         pygame.display.update()
         constants.Clock.tick(constants.FPS)
         
