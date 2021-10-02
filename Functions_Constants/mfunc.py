@@ -3,12 +3,8 @@ from pygame.locals import *
 from Functions_Constants import constants , Transition_moving, register , Level , Ingame_Objects, counters , login
 
 def main_menu():
-
-    
-
     while True:
             
-
             constants.WIN.blit(constants.Background,(0,0))
 
             mx,my=pygame.mouse.get_pos()
@@ -20,9 +16,6 @@ def main_menu():
 
 
             if button_play.collidepoint((bonk)):
-                constants.WIN.blit(constants.Background,(0,0))
-                button_options=constants.WIN.blit(constants.Image_options,(35,450))
-                button_exit=constants.WIN.blit(constants.Image_exit,(35,600))
                 button_play=constants.WIN.blit(constants.Image_play_enlarged,(35,300))
                 if click==True:
                     Button_sound= pygame.mixer.Sound(os.path.join('Sounds', 'Button_Click.mp3'))
@@ -31,10 +24,7 @@ def main_menu():
                     play_pressed()
                     
             if button_options.collidepoint((bonk)):
-                constants.WIN.blit(constants.Background,(0,0))
                 button_options=constants.WIN.blit(constants.Image_options_enlarged,(35,450))
-                button_exit=constants.WIN.blit(constants.Image_exit,(35,600))
-                button_play=constants.WIN.blit(constants.Image_play,(35,300))
                 if click==True:
                     Button_sound= pygame.mixer.Sound(os.path.join('Sounds', 'Button_Click.mp3'))
                     Button_sound.play()
@@ -42,10 +32,7 @@ def main_menu():
                     options_pressed()
 
             if button_exit.collidepoint((bonk)):
-                    constants.WIN.blit(constants.Background,(0,0))
                     button_exit=constants.WIN.blit(constants.Image_exit_enlarged,(35,600))
-                    button_play=constants.WIN.blit(constants.Image_play,(35,300))
-                    button_options=constants.WIN.blit(constants.Image_options,(35,450))
 
             click=False
 
@@ -85,8 +72,6 @@ def play_pressed():
         if button_back.collidepoint((bonk)):
             button_back=constants.WIN.blit(constants.Image_back_enlarged, (10,5))
 
-
-
         for event in pygame.event.get():
             if event.type==QUIT:
                 pygame.QUIT
@@ -125,10 +110,6 @@ def play_pressed():
                     running=False
 
             if event.type==KEYDOWN:
-                # if event.key==K_ESCAPE:
-                #     Transition_moving.fadetoblack(constants.Width,constants.Height)
-                #     Transition_moving.fadetoscreen(constants.Width,constants.Height)
-                #     running=False
                 pass
 
         pygame.display.update()
@@ -156,84 +137,57 @@ def options_pressed():
 
         button_music1 = constants.WIN.blit(constants.Music1_button,(900,400))
         button_music2 = constants.WIN.blit(constants.Music2_button,(900,575))
+        button_mute = constants.WIN.blit(constants.Mute_button,(1100,225))
 
 
         if button_fullscreen.collidepoint((bonk)):
-            constants.WIN.blit(constants.Blank_BG,(0,0))
-            constants.WIN.blit(constants.Image_fullscreen_enlarged,(35,400))
-            constants.WIN.blit(constants.Image_register,(35,575))
-            button_back=constants.WIN.blit(constants.Image_back,(10,5))
-            button_music1 = constants.WIN.blit(constants.Music1_button,(900,400))
-            button_music2 = constants.WIN.blit(constants.Music2_button,(900,575))
-            
+            constants.WIN.blit(constants.Image_fullscreen_enlarged,(35,400))   
         
         if button_register.collidepoint((bonk)):
-            constants.WIN.blit(constants.Blank_BG,(0,0))
-            constants.WIN.blit(constants.Image_register_enlarged,(35,575))
-            button_fullscreen=constants.WIN.blit(constants.Image_fullscreen,(35,400))
-            button_back=constants.WIN.blit(constants.Image_back,(10,5))
-            button_music1 = constants.WIN.blit(constants.Music1_button,(900,400))
-            button_music2 = constants.WIN.blit(constants.Music2_button,(900,575))
-            
+            constants.WIN.blit(constants.Image_register_enlarged,(35,575))  
 
         if button_back.collidepoint((bonk)):
-            constants.WIN.blit(constants.Blank_BG,(0,0))
-            constants.WIN.blit(constants.Image_fullscreen,(35,400))
-            constants.WIN.blit(constants.Image_register,(35,575))
             constants.WIN.blit(constants.Image_back_enlarged,(10,5))
-            button_music1 = constants.WIN.blit(constants.Music1_button,(900,400))
-            button_music2 = constants.WIN.blit(constants.Music2_button,(900,575))
-        '''login button size increase'''
-        # if button_login.collidepoint(bonk):
-        #     constants.WIN.blit(constants.Image_login_enlarged,35,225)  
+        
+        if button_login.collidepoint(bonk):
+            constants.WIN.blit(constants.Image_login_enlarged,(35,225))  
 
         if button_music1.collidepoint((bonk)):
-            constants.WIN.blit(constants.Blank_BG,(0,0))
-            constants.WIN.blit(constants.Image_fullscreen,(35,400))
-            constants.WIN.blit(constants.Image_register,(35,575))
-            constants.WIN.blit(constants.Image_back,(10,5)) 
             button_music1 = constants.WIN.blit(constants.Music1_button_enlarged,(900,400))
-            button_music2 = constants.WIN.blit(constants.Music2_button,(900,575))
 
         if button_music2.collidepoint((bonk)):
-            constants.WIN.blit(constants.Blank_BG,(0,0))
-            constants.WIN.blit(constants.Image_fullscreen,(35,400))
-            constants.WIN.blit(constants.Image_register,(35,575))
-            constants.WIN.blit(constants.Image_back,(10,5)) 
-            button_music1 = constants.WIN.blit(constants.Music1_button,(900,400))
             button_music2 = constants.WIN.blit(constants.Music2_button_enlarged,(900,575))
-                  
-            
 
+        if button_back.collidepoint((bonk)):
+            button_back=constants.WIN.blit(constants.Image_back_enlarged, (10,5))
+
+            
         for event in pygame.event.get():
             if event.type==QUIT:
                 pygame.QUIT()
                 sys.exit()
 
-            
-
             if event.type==KEYDOWN:
-                # if event.key==K_ESCAPE:
-                #     Transition_moving.fadetoblack(constants.Width,constants.Height)
-                #     Transition_moving.fadetoscreen(constants.Width,constants.Height)
-                #     running=False
                 pass
             
             if event.type==MOUSEBUTTONDOWN:
                     if event.button==1:
                         click=True
+
             if button_fullscreen.collidepoint((bonk)):
                 if click==True:
                     Button_sound= pygame.mixer.Sound(os.path.join('Sounds', 'Button_Click.mp3'))
                     Button_sound.play()
                     Button_sound.set_volume(0.1)
                     fullscreen_pressed()
+
             if button_register.collidepoint((bonk)):
                 if click==True:
                     Button_sound= pygame.mixer.Sound(os.path.join('Sounds', 'Button_Click.mp3'))
                     Button_sound.play()
                     Button_sound.set_volume(0.1)
-                    register_pressed()                  
+                    register_pressed()         
+
             if button_back.collidepoint((bonk)):
                 if click==True:
                     Button_sound= pygame.mixer.Sound(os.path.join('Sounds', 'Button_Click.mp3'))
@@ -250,33 +204,21 @@ def options_pressed():
                     Button_sound.set_volume(0.1)
                     login_pressed()
 
+            if button_mute.collidepoint((bonk)):
+                if click==True:
+                    pygame.mixer.stop()
 
             if button_music1.collidepoint((bonk)):
-                if click == True and t1check==1:
-                    Button_sound= pygame.mixer.Sound(os.path.join('Sounds', 'Button_Click.mp3'))
-                    Button_sound.play()
-                    Button_sound.set_volume(0.1)
-                    
+                if click == True:
                     pygame.mixer.stop()
                     Track1.play(-1)
                     Track1.set_volume(0.1)
-                    #Track2.stop()
-                    
-                    t1check = 0
-                    t2check = 1
+        
             if button_music2.collidepoint((bonk)):
-                if click == True and t2check==1:
-                    Button_sound= pygame.mixer.Sound(os.path.join('Sounds', 'Button_Click.mp3'))
-                    Button_sound.play()
-                    Button_sound.set_volume(0.1)
-
+                if click == True:
                     pygame.mixer.stop()
                     Track2.play(-1)
                     Track2.set_volume(0.1)
-                    #Track1.stop()
-                    
-                    t2check = 0
-                    t1check = 1
 
         pygame.display.update()
         constants.Clock.tick(constants.FPS)

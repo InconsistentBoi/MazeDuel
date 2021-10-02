@@ -76,7 +76,11 @@ Music1_button = scale("MusicButton1.png",(normal_size))
 Music1_button_enlarged = scale("MusicButton1.png",(enlarged_size))
 Music2_button = scale("MusicButton2.png",(normal_size))
 Music2_button_enlarged = scale("MusicButton2.png",(enlarged_size))
+Mute_button = scale("Mutebutton.png",(100,100))
+
+
 #ingame objects
+
 Player_Image_Up=scale("Playerchar.png",(26,26))
 Player_Image_Right=rotate("Playerchar.png",(26,26), 270)
 Player_Image_Down=rotate("Playerchar.png",(26,26), 180)
