@@ -142,6 +142,7 @@ def Lvl_pressed(Level):
             if event.type==MOUSEBUTTONDOWN:
                     if event.button==1:
                         click=True
+                        print(bonk)
             if Laser_Button.collidepoint((bonk)):
                 if click==True:
                     if a==1:
@@ -192,6 +193,10 @@ def Lvl_pressed(Level):
                         constants.Health = 20
                         running=False
                         
+        if Level == constants.L1_Layout:
+            easter_egg_rect =  pygame.Rect(764,326,65,210)
+            easter_egg_triggered= 0
+        
         
         if Level == constants.L2_Layout:
             Spin = constants.rotate("Line.png",(10,85),constants.ANGLE)
@@ -227,6 +232,7 @@ def Lvl_pressed(Level):
         Ingame_Objects.rocket_collision(Player_Hitbox,Rocket_Hitbox)
         Ingame_Objects.maze_collision(Player_Hitbox)
         Ingame_Objects.player_movement(keys_pressed,Player_Hitbox)
+        Ingame_Objects.EasterEgg_collision(Player_Hitbox,easter_egg_rect, easter_egg_triggered)
 
         counters.health_number()
         counters.laser_number(a)

@@ -133,10 +133,13 @@ def landmine3_collision(Player_Hitbox,Landmine3_Hitbox):
         Player_Hitbox.x, Player_Hitbox.y = 250, 590
 
 
-def Strike_collision(Player_Hitbox):
-    if constants.WIN.get_at((Player_Hitbox.x, Player_Hitbox.y)) == (236,28,36):
-        constants.Health -= 20
-        constants.Hits += 1
+def EasterEgg_collision(Player_Hitbox,easter_egg_rect,easter_egg_triggered):
+    if Player_Hitbox.colliderect(easter_egg_rect )and _:
+       Celebration_sound = pygame.mixer.Sound(os.path.join('Sounds', 'Celebration_Sound.mp3')) 
+       Celebration_sound.play()
+       Celebration_sound.set_volume(0.2)
+       easter_egg_triggered=0
+#   #      counters.draw_text("Congratulations! You wasted your time to find an easter egg!",constants.Newfont,(255,255,255), constants.WIN, 450, 50)
 
 def laser_pressed(Laser_Hitbox):
     Laser_Hitbox.y -= 15
