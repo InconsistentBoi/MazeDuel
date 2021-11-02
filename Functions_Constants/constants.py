@@ -57,6 +57,8 @@ fname="Button_Back.png"
 Image_back = scale(fname, (180,80))
 Image_back_enlarged = scale(fname, (190,90))
 
+Image_Secret_Button= scale("SecretButton.png",(25,25))
+
 Image_login = scale("Button_Login.png",normal_size)
 Image_login_enlarged = scale("Button_Login.png",enlarged_size)
 

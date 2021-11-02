@@ -16,7 +16,7 @@ def Lvl_pressed(Level):
     Player_Hitbox=pygame.Rect(250,590,20,20)
     Laser_Hitbox=pygame.Rect(Player_Hitbox.x,720,5,50)
     Rocket_Hitbox = pygame.Rect(Player_Hitbox.x,720,50,50)
-    # Strike_Hitbox=pygame.Rect(0,720,200,200)
+    easter_egg_triggered = 0
     linestate = 0
     a,b,c,d,e=(1,1,1,1,1)
     Used_Num=2
@@ -195,7 +195,7 @@ def Lvl_pressed(Level):
                         
         if Level == constants.L1_Layout:
             easter_egg_rect =  pygame.Rect(764,326,65,210)
-            easter_egg_triggered= 0
+            
         
         
         if Level == constants.L2_Layout:
@@ -232,7 +232,14 @@ def Lvl_pressed(Level):
         Ingame_Objects.rocket_collision(Player_Hitbox,Rocket_Hitbox)
         Ingame_Objects.maze_collision(Player_Hitbox)
         Ingame_Objects.player_movement(keys_pressed,Player_Hitbox)
-        Ingame_Objects.EasterEgg_collision(Player_Hitbox,easter_egg_rect, easter_egg_triggered)
+        if easter_egg_triggered==0:
+            if Ingame_Objects.EasterEgg_collision(Player_Hitbox, easter_egg_rect):
+                easter_egg_triggered=1
+                print(easter_egg_triggered)
+
+        if easter_egg_triggered==1:
+            counters.draw_text("Congratulations! You wasted your time to find an easter egg!",constants.Newfont,(255,255,255), constants.WIN, 48, 642)
+
 
         counters.health_number()
         counters.laser_number(a)

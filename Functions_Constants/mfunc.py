@@ -1,6 +1,7 @@
-import pygame,sys,os
+import pygame,sys,os , pickle
 from pygame.locals import *
 from Functions_Constants import constants , Transition_moving, register , Level , Ingame_Objects, counters , login
+from Files import *
 
 def main_menu():
     while True:
@@ -13,6 +14,7 @@ def main_menu():
             button_play=constants.WIN.blit(constants.Image_play,(35,300))
             button_options=constants.WIN.blit(constants.Image_options,(35,450))
             button_exit=constants.WIN.blit(constants.Image_exit,(35,600))
+            button_secret=constants.WIN.blit(constants.Image_Secret_Button,(655,90))
 
 
             if button_play.collidepoint((bonk)):
@@ -34,6 +36,12 @@ def main_menu():
             if button_exit.collidepoint((bonk)):
                     button_exit=constants.WIN.blit(constants.Image_exit_enlarged,(35,600))
 
+            if button_secret.collidepoint(bonk):
+                    bin_file= os.path.join("Files","EasterEgg.bin")
+                    f = open(bin_file,"rb")
+                    secret_button_read = pickle.load(f)
+                    counters.draw_text(secret_button_read,constants.Newfont,(255,255,255), constants.WIN, 1100,50)
+
             click=False
 
             for event in pygame.event.get():
@@ -43,6 +51,7 @@ def main_menu():
                 if event.type==MOUSEBUTTONDOWN:
                     if event.button==1:
                         click=True
+                        print(bonk)
                 if button_exit.collidepoint((bonk)):
                     if click==True:
                         click=False
@@ -173,6 +182,7 @@ def options_pressed():
             if event.type==MOUSEBUTTONDOWN:
                     if event.button==1:
                         click=True
+                    
 
             if button_fullscreen.collidepoint((bonk)):
                 if click==True:
