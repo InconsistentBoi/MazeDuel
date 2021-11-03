@@ -11,6 +11,10 @@ WIN=pygame.display.set_mode((Width,Height))
 
 font=pygame.font.SysFont(None,30)
 Newfont = pygame.font.SysFont(None, 50)
+cred_font = pygame.font.SysFont(None, 30)
+
+credit_list= []
+
 
 BLACK= (0,0,0) 
 WHITE = (255,255,255) 
@@ -61,6 +65,13 @@ Image_Secret_Button= scale("SecretButton.png",(25,25))
 
 Image_login = scale("Button_Login.png",normal_size)
 Image_login_enlarged = scale("Button_Login.png",enlarged_size)
+
+Image_credit = scale("Button_Credits.png",(140,60))
+
+Button_HTP= scale("Button_HTP.png",normal_size)
+Button_HTP_enlarged= scale("Button_HTP.png",enlarged_size)
+
+Image_HTP= scale("HTP_BG.png",(Width,Height))
 
 fname = "Text_Bg.png"
 temp_button = scale(fname, (180,80))
