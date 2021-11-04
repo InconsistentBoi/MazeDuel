@@ -23,11 +23,12 @@ def sql_input(user_text, pw_text):
         cursor.execute(sql_command, create)
         mycon.commit()
         mycon.close()
-        mfunc.Error_Hitbox.x,mfunc.Error_Hitbox.y = 10,10
+        mfunc.Error_Hitbox.x,mfunc.Error_Hitbox.y = 1280,720
+        mfunc.Success_Hitbox.x,mfunc.Success_Hitbox.y = 600,200
 
     except:
-        counters.draw_text("haha noob",constants.font,(255,255,255), constants.WIN, 1000,0)
-        mfunc.Error_Hitbox.x,mfunc.Error_Hitbox.y = 1000,10
+        mfunc.Error_Hitbox.x,mfunc.Error_Hitbox.y = 600,200
+        mfunc.Success_Hitbox.x,mfunc.Success_Hitbox.y = 1280,720
 
 def sql_login(user_text, pw_text):
     try:
@@ -50,13 +51,14 @@ def sql_login(user_text, pw_text):
             else:
                 return True
         mycon.close()
+        mfunc.Error_Hitbox.x,mfunc.Error_Hitbox.y = 1280,720
+        mfunc.Success_Hitbox.x,mfunc.Success_Hitbox.y = 600,200
         
-        mfunc.Error_Hitbox.x,mfunc.Error_Hitbox.y = 10,10
         
 
     except:
-        counters.draw_text("haha noob",constants.font,(255,255,255), constants.WIN, 1000,0)
-        mfunc.Error_Hitbox.x,mfunc.Error_Hitbox.y = 1000,10
+        mfunc.Error_Hitbox.x,mfunc.Error_Hitbox.y = 600,200
+        mfunc.Success_Hitbox.x,mfunc.Success_Hitbox.y = 1280,720
 
 def account_check(u_name):
     

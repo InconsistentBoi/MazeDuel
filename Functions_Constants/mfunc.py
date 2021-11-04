@@ -2,13 +2,15 @@ import pygame,sys,os , pickle
 from pygame.locals import *
 from Functions_Constants import constants , Transition_moving, register , Level , Ingame_Objects, counters , login
 from Files import *
-
+Players = []
 def main_menu():
     while True:
             
 
             constants.WIN.blit(constants.Background,(0,0))
-
+            counters.draw_text('Players Logged in:',constants.font,(173,230,240),constants.WIN,800,600)
+            counters.draw_text('[Player1,Player2]',constants.font,(173,230,240),constants.WIN,800,630)
+            counters.draw_text(str(Players),constants.font,(173,230,240),constants.WIN,800,680)
             mx,my=pygame.mouse.get_pos()
             bonk=(mx,my)
 
@@ -17,7 +19,7 @@ def main_menu():
             button_exit=constants.WIN.blit(constants.Image_exit,(35,600))
             button_secret=constants.WIN.blit(constants.Image_Secret_Button,(655,90))
             button_credit=constants.WIN.blit(constants.Image_credit,(1,1))
-
+            
 
             if button_play.collidepoint((bonk)):
                 button_play=constants.WIN.blit(constants.Image_play_enlarged,(35,300))
@@ -46,6 +48,9 @@ def main_menu():
 
             if button_credit.collidepoint((bonk)):
                 if click==True:
+                    Button_sound= pygame.mixer.Sound(os.path.join('Sounds', 'Button_Click.mp3'))
+                    Button_sound.play()
+                    Button_sound.set_volume(0.1)
                     credits_pressed()
 
             click=False
@@ -255,7 +260,8 @@ def fullscreen_pressed():
     pygame.display.update()
     constants.Clock.tick(constants.FPS)
 
-Error_Hitbox = pygame.Rect(10,10,5,50)
+Error_Hitbox = pygame.Rect(1280,720,5,50)
+Success_Hitbox = pygame.Rect(1280,720,5,50)
 
 def register_pressed():
     running=True
@@ -264,12 +270,12 @@ def register_pressed():
         constants.WIN.blit(constants.Blank_BG,(0,0))
         button_back=constants.WIN.blit(constants.Image_back,(10,5))
 
-        button_createacc = constants.WIN.blit(constants.temp_button,(600,200))
+        button_createacc = constants.WIN.blit(constants.Image_register,(600,375))
 
         
 
-        counters.draw_text("haha noob",constants.font,(255,255,255),constants.WIN, Error_Hitbox.x,Error_Hitbox.y)
-
+        counters.draw_text("(Username already exists)",constants.font,(236,28,36),constants.WIN, Error_Hitbox.x,Error_Hitbox.y)
+        counters.draw_text("Successfully created",constants.font,(0,255,0),constants.WIN, Success_Hitbox.x,Success_Hitbox.y)
 
         mx,my=pygame.mouse.get_pos()
         bonk=(mx,my)
@@ -286,6 +292,10 @@ def register_pressed():
 
             if button_back.collidepoint((bonk)):
                 if click==True:
+                    Error_Hitbox.x = 1280
+                    Error_Hitbox.y = 720
+                    Success_Hitbox.x = 1280
+                    Success_Hitbox.y = 720
                     Transition_moving.fadetoblack(constants.Width,constants.Height)
                     Transition_moving.fadetoscreen(constants.Width,constants.Height)
                     running=False
@@ -302,7 +312,7 @@ def register_pressed():
             if button_createacc.collidepoint((bonk)):
                 if click == True:
                     register.db_input()
-                    # Error_Hitbox = pygame.Rect(10,10,5,50)
+                        
         
         for i in range(2):
             if constants.active[i]:
@@ -323,11 +333,12 @@ def login_pressed():
         constants.WIN.blit(constants.Blank_BG,(0,0))
         button_back=constants.WIN.blit(constants.Image_back,(10,5))
 
-        button_signin = constants.WIN.blit(constants.temp_button,(600,200))
+        button_signin = constants.WIN.blit(constants.Image_login,(600,375))
 
         
 
-        counters.draw_text("haha noob",constants.font,(255,255,255),constants.WIN, Error_Hitbox.x,Error_Hitbox.y)
+        counters.draw_text("(Error logging in)",constants.font,(236,28,36),constants.WIN, Error_Hitbox.x,Error_Hitbox.y)
+        counters.draw_text("Successfully logged in",constants.font,(0,255,0),constants.WIN, Success_Hitbox.x,Success_Hitbox.y)
 
 
         mx,my=pygame.mouse.get_pos()
@@ -345,7 +356,10 @@ def login_pressed():
 
             if button_back.collidepoint((bonk)):
                 if click==True:
-
+                    Error_Hitbox.x = 1280
+                    Error_Hitbox.y = 720
+                    Success_Hitbox.x = 1280
+                    Success_Hitbox.y = 720
                     Transition_moving.fadetoblack(constants.Width,constants.Height)
                     Transition_moving.fadetoscreen(constants.Width,constants.Height)
                     running=False
@@ -360,7 +374,7 @@ def login_pressed():
                     global Players
                     Players = login.db_log()
                     
-                    # Error_Hitbox = pygame.Rect(10,10,5,50)
+                   
         
         for i in range(4):
             if constants.active[i]:

@@ -19,7 +19,7 @@ def input(event, input_num):
                 constants.user_text[input_num] = constants.user_text[input_num][:-1]
                 constants.active[input_num] = True
             else:
-                if constants.charcount[input_num] <= 10:
+                if constants.charcount[input_num] < 10:
                     constants.user_text[input_num] += event.unicode 
                     constants.charcount[input_num]+=1
     
