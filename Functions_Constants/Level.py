@@ -232,13 +232,14 @@ def Lvl_pressed(Level):
         Ingame_Objects.rocket_collision(Player_Hitbox,Rocket_Hitbox)
         Ingame_Objects.maze_collision(Player_Hitbox)
         Ingame_Objects.player_movement(keys_pressed,Player_Hitbox)
-        if easter_egg_triggered==0:
-            if Ingame_Objects.EasterEgg_collision(Player_Hitbox, easter_egg_rect):
-                easter_egg_triggered=1
-                print(easter_egg_triggered)
+        if Level == constants.L1_Layout:
+            if easter_egg_triggered==0:
+                if Ingame_Objects.EasterEgg_collision(Player_Hitbox, easter_egg_rect):
+                    easter_egg_triggered=1
+                    print(easter_egg_triggered)
 
-        if easter_egg_triggered==1:
-            counters.draw_text("Congratulations! You wasted your time to find an easter egg!",constants.Newfont,(255,255,255), constants.WIN, 48, 642)
+            if easter_egg_triggered==1:
+                counters.draw_text("Congratulations! You wasted your time to find an easter egg!",constants.Newfont,(255,255,255), constants.WIN, 48, 642)
 
 
         counters.health_number()
