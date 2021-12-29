@@ -271,7 +271,7 @@ def register_pressed():
         button_back=constants.WIN.blit(constants.Image_back,(10,5))
 
         button_createacc = constants.WIN.blit(constants.Image_register,(600,375))
-
+        button_delacc = constants.WIN.blit(constants.Image_delacc,(600, 100))
         
 
         counters.draw_text("(Username already exists)",constants.font,(236,28,36),constants.WIN, Error_Hitbox.x,Error_Hitbox.y)
@@ -299,6 +299,9 @@ def register_pressed():
                     Transition_moving.fadetoblack(constants.Width,constants.Height)
                     Transition_moving.fadetoscreen(constants.Width,constants.Height)
                     running=False
+            if button_delacc.collidepoint((bonk)):
+                if click==True:
+                    register.db_del()
 
             if event.type==KEYDOWN:
                 # if event.key==K_ESCAPE:
@@ -372,8 +375,14 @@ def login_pressed():
             if button_signin.collidepoint((bonk)):
                 if click == True:
                     global Players
-                    Players = login.db_log()
-                    
+                    Players,status = login.db_log()
+                    if status == True:
+                        Error_Hitbox.x,Error_Hitbox.y = 1280,720
+                        Success_Hitbox.x,Success_Hitbox.y = 600,200
+                    else:
+                        Error_Hitbox.x,Error_Hitbox.y = 600,200
+                        Success_Hitbox.x,Success_Hitbox.y = 1280,720
+            
                    
         
         for i in range(4):

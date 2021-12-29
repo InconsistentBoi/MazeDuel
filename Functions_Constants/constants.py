@@ -65,6 +65,7 @@ Image_Secret_Button= scale("SecretButton.png",(25,25))
 
 Image_login = scale("Button_Login.png",normal_size)
 Image_login_enlarged = scale("Button_Login.png",enlarged_size)
+Image_delacc = scale("Delete_Account.png", normal_size)
 
 Image_credit = scale("Button_Credits.png",(140,60))
 

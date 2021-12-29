@@ -54,7 +54,11 @@ def db_log():
                 
             else:
                 print('pass', itercount, 'wrong')
+                return None,False
         print(PlayerList)
-        return PlayerList
+        # if PlayerList[2]==PlayerList[1]:
+        #     PlayerList[2]=''
+        #     counters.draw_text('Player 1 and 2 cannot have the same username',constants.font,(255,255,255),constants.WIN,10,200)
+        return PlayerList,True
     except:
         pass

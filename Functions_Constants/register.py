@@ -45,3 +45,7 @@ def db_input():
             SQLtest.sql_input(constants.user_text[i], constants.user_text[i+1])
     except:
         pass
+
+def db_del():
+    for i in range(1):
+        SQLtest.sql_del(constants.user_text[i], constants.user_text[i+1])

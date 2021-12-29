@@ -260,10 +260,13 @@ def Lvl_pressed(Level):
         
             winner = "Player 1 "
             win_user = 0
-            print(mfunc.Players[win_user], winner, Remaining_Health, Sabotages, Hits)
-            for i in range (0,2):
-                exist = SQLtest.account_check(mfunc.Players[i])
-                SQLtest.stats_input(exist, mfunc.Players[i], win_user)
+            try:
+                print(mfunc.Players[win_user], winner, Remaining_Health, Sabotages, Hits)
+                for i in range (0,2):
+                    exist = SQLtest.account_check(mfunc.Players[i])
+                    SQLtest.stats_input(exist, mfunc.Players[i], win_user)
+            except:
+                pass
 
             finscrn.fin(winner,Remaining_Health,Sabotages, Hits)
             
@@ -280,11 +283,15 @@ def Lvl_pressed(Level):
 
             winner = "Player 2 "
             win_user = 1
-            print(mfunc.Players[win_user], winner,Remaining_Health,Sabotages, Hits )
-            for i in range (0,2):
-                SQLtest.stats_input(SQLtest.account_check(mfunc.Players[i]), mfunc.Players[i], win_user)
+            try:
+                print(mfunc.Players[win_user], winner,Remaining_Health,Sabotages, Hits )
+                for i in range (0,2):
+                    SQLtest.stats_input(SQLtest.account_check(mfunc.Players[i]), mfunc.Players[i], win_user)
+                    
+            except:
+                pass
+                
             finscrn.fin(winner,Remaining_Health,Sabotages, Hits)
-            
 
         
 
