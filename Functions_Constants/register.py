@@ -26,6 +26,7 @@ def input(event, input_num):
 
 
 def output(output_num):
+    global render_text
     if (output_num % 2):
         render_text = '*' * len(constants.user_text[output_num])
 
@@ -49,3 +50,7 @@ def db_input():
 def db_del():
     for i in range(1):
         SQLtest.sql_del(constants.user_text[i], constants.user_text[i+1])
+
+def fieldclear():
+    for i in range(1):
+        constants.user_text[i], constants.user_text[i+1] = '',''

@@ -274,8 +274,8 @@ def register_pressed():
         button_delacc = constants.WIN.blit(constants.Image_delacc,(600, 100))
         
 
-        counters.draw_text("(Username already exists)",constants.font,(236,28,36),constants.WIN, Error_Hitbox.x,Error_Hitbox.y)
-        counters.draw_text("Successfully created",constants.font,(0,255,0),constants.WIN, Success_Hitbox.x,Success_Hitbox.y)
+        counters.draw_text("Error",constants.font,(236,28,36),constants.WIN, Error_Hitbox.x,Error_Hitbox.y)
+        counters.draw_text("Successful",constants.font,(0,255,0),constants.WIN, Success_Hitbox.x,Success_Hitbox.y)
 
         mx,my=pygame.mouse.get_pos()
         bonk=(mx,my)
@@ -299,6 +299,8 @@ def register_pressed():
                     Transition_moving.fadetoblack(constants.Width,constants.Height)
                     Transition_moving.fadetoscreen(constants.Width,constants.Height)
                     running=False
+                    register.fieldclear()
+
             if button_delacc.collidepoint((bonk)):
                 if click==True:
                     register.db_del()
@@ -340,7 +342,7 @@ def login_pressed():
 
         
 
-        counters.draw_text("(Error logging in)",constants.font,(236,28,36),constants.WIN, Error_Hitbox.x,Error_Hitbox.y)
+        counters.draw_text("Error logging in",constants.font,(236,28,36),constants.WIN, Error_Hitbox.x,Error_Hitbox.y)
         counters.draw_text("Successfully logged in",constants.font,(0,255,0),constants.WIN, Success_Hitbox.x,Success_Hitbox.y)
 
 
@@ -366,6 +368,7 @@ def login_pressed():
                     Transition_moving.fadetoblack(constants.Width,constants.Height)
                     Transition_moving.fadetoscreen(constants.Width,constants.Height)
                     running=False
+                    login.fieldclear()
 
             if event.type==KEYDOWN:
                 pass

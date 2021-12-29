@@ -62,3 +62,7 @@ def db_log():
         return PlayerList,True
     except:
         pass
+
+def fieldclear():
+    for i in range(0,4,2):
+        constants.user_text[i], constants.user_text[i+1] = '',''
