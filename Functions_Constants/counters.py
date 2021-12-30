@@ -2,7 +2,7 @@ import pygame,sys,os
 from pygame.locals import *
 from Functions_Constants import constants , Transition_moving, register , Level , Ingame_Objects
 
-def draw_text(text,font,color,surface,x,y):
+def draw_text(text,font,color,surface,x,y): #A function that makes it easy to blit text at a particular spot
     textobj= font.render(text,1,color)
     textrect=textobj.get_rect()
     textrect.topleft=(x,y)

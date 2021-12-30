@@ -1,8 +1,6 @@
 import pygame,sys,os
 from pygame.locals import *
 from Functions_Constants import constants , Transition_moving, mfunc, SQLtest
-#important
-'''input and output functions identical to register file'''
 
 def input(event, input_num):
     if event.type == pygame.MOUSEBUTTONDOWN:
@@ -26,13 +24,10 @@ def input(event, input_num):
 def output(output_num):
     if (output_num % 2):
         render_text = '*' * len(constants.user_text[output_num])
-
-        
+ 
     else:
         render_text = constants.user_text[output_num]
-
         
-
     text_surface = constants.base_font[output_num].render(render_text,True,(255,242,0))
     constants.WIN.blit(text_surface,(constants.input_rect[output_num].x + 5, constants.input_rect[output_num].y + 5))
     pygame.draw.rect(constants.WIN,constants.colour[output_num],constants.input_rect[output_num],2) 

@@ -90,7 +90,7 @@ def Lvl_pressed(Level):
 
         mx,my=pygame.mouse.get_pos()
         bonk=(mx,my)
-        
+
         Laser_Button = constants.WIN.blit(constants.Laser_button,(1030,90))
 
         Rocket_Button = constants.WIN.blit(constants.Rocket_button,(1030,240))
@@ -161,7 +161,7 @@ def Lvl_pressed(Level):
                         constants.Health = 20
                         running=False
                         
-        if Level == constants.L1_Layout:
+        if Level == constants.L1_Layout: #Easter Egg Binary file
             easter_egg_rect =  pygame.Rect(764,326,65,210)
                 
         if Level == constants.L2_Layout:
@@ -174,15 +174,14 @@ def Lvl_pressed(Level):
             Line1 = constants.rotate("Line.png",(10,85),90)
             Line2 = constants.rotate("Line.png", (10,82),-45)
             Line3 = constants.rotate("Line.png", (12,50),0)
-
-
             second = int(counters.seconds)
-            if second%2==0:
+
+            if second%2==0: #Every even second the lines blit here
                 constants.WIN.blit(Line1,(144, 553))
                 constants.WIN.blit(Line2,(665, 355))
                 constants.WIN.blit(Line3,(543, 230))
 
-            if second%2==1:
+            if second%2==1: #Every odd second the lines blit here
                 constants.WIN.blit(Line1,(388, 553))
                 constants.WIN.blit(Line2,(600, 415))
                 constants.WIN.blit(Line3,(543, 285))
@@ -202,12 +201,10 @@ def Lvl_pressed(Level):
             if easter_egg_triggered==1:
                 counters.draw_text("Congratulations! You wasted your time to find an easter egg!",constants.Newfont,(255,255,255), constants.WIN, 48, 642)
 
-
         counters.health_number()
         counters.laser_number(a)
         counters.rocket_number(b)
-        counters.landmine_number(Used_Num)
-        
+        counters.landmine_number(Used_Num)     
 
         if Ingame_Objects.fin_line_collision(Player_Hitbox):
             Remaining_Health = constants.Health
@@ -253,8 +250,6 @@ def Lvl_pressed(Level):
                 pass
                 
             finscrn.fin(winner,Remaining_Health,Sabotages, Hits)
-
-        
 
         pygame.display.update()
         constants.Clock.tick(constants.FPS)

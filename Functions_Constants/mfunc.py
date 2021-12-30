@@ -3,6 +3,7 @@ from pygame.locals import *
 from Functions_Constants import constants , Transition_moving, register , Level , Ingame_Objects, counters , login
 from Files import *
 Players = []
+
 def main_menu():
     while True:
             
@@ -56,7 +57,7 @@ def main_menu():
             click=False
         
             for event in pygame.event.get():
-                if event.type==QUIT:
+                if event.type==QUIT: #Lets you close the program via Red Cross Button in the top right
                     pygame.quit()
                     sys.exit()
                 if event.type==MOUSEBUTTONDOWN:
@@ -93,7 +94,7 @@ def play_pressed():
             button_back=constants.WIN.blit(constants.Image_back_enlarged, (10,5))
 
         for event in pygame.event.get():
-            if event.type==QUIT:
+            if event.type==QUIT: 
                 pygame.QUIT
                 sys.exit()
             if event.type==MOUSEBUTTONDOWN:
@@ -185,14 +186,10 @@ def options_pressed():
         if button_back.collidepoint((bonk)):
             button_back=constants.WIN.blit(constants.Image_back_enlarged, (10,5))
 
-            
         for event in pygame.event.get():
             if event.type==QUIT:
                 pygame.QUIT()
                 sys.exit()
-
-            if event.type==KEYDOWN:
-                pass
             
             if event.type==MOUSEBUTTONDOWN:
                     if event.button==1:
@@ -204,7 +201,6 @@ def options_pressed():
                     Button_sound.play()
                     Button_sound.set_volume(0.1)
                     htp_pressed()
-                    
 
             if button_fullscreen.collidepoint((bonk)):
                 if click==True:
@@ -272,7 +268,6 @@ def register_pressed():
 
         button_createacc = constants.WIN.blit(constants.Image_register,(600,375))
         button_delacc = constants.WIN.blit(constants.Image_delacc,(600, 100))
-        
 
         counters.draw_text("Error",constants.font,(236,28,36),constants.WIN, Error_Hitbox.x,Error_Hitbox.y)
         counters.draw_text("Successful",constants.font,(0,255,0),constants.WIN, Success_Hitbox.x,Success_Hitbox.y)
@@ -289,7 +284,6 @@ def register_pressed():
             if event.type==MOUSEBUTTONDOWN:
                     if event.button==1:
                         click=True
-
             if button_back.collidepoint((bonk)):
                 if click==True:
                     Error_Hitbox.x = 1280
@@ -306,10 +300,6 @@ def register_pressed():
                     register.db_del()
 
             if event.type==KEYDOWN:
-                # if event.key==K_ESCAPE:
-                #     Transition_moving.fadetoblack(constants.Width,constants.Height)
-                #     Transition_moving.fadetoscreen(constants.Width,constants.Height)
-                #     running=False
                 pass
             for i in range(2):
                 register.input(event, i)
@@ -340,25 +330,19 @@ def login_pressed():
 
         button_signin = constants.WIN.blit(constants.Image_login,(600,375))
 
-        
-
         counters.draw_text("Error logging in",constants.font,(236,28,36),constants.WIN, Error_Hitbox.x,Error_Hitbox.y)
         counters.draw_text("Successfully logged in",constants.font,(0,255,0),constants.WIN, Success_Hitbox.x,Success_Hitbox.y)
 
-
         mx,my=pygame.mouse.get_pos()
         bonk=(mx,my)
-
 
         for event in pygame.event.get():
             if event.type==QUIT:
                 pygame.QUIT
                 sys.exit()
-
             if event.type==MOUSEBUTTONDOWN:
                     if event.button==1:
                         click=True
-
             if button_back.collidepoint((bonk)):
                 if click==True:
                     Error_Hitbox.x = 1280
@@ -384,9 +368,7 @@ def login_pressed():
                         Success_Hitbox.x,Success_Hitbox.y = 600,200
                     else:
                         Error_Hitbox.x,Error_Hitbox.y = 600,200
-                        Success_Hitbox.x,Success_Hitbox.y = 1280,720
-            
-                   
+                        Success_Hitbox.x,Success_Hitbox.y = 1280,720        
         
         for i in range(4):
             if constants.active[i]:
@@ -433,7 +415,6 @@ def credits_pressed():
                 if event.type==MOUSEBUTTONDOWN:
                     if event.button==1:
                         click=True
-                        print(bonk)
                 if button_back.collidepoint((bonk)):
                     if click==True:
                         Button_sound= pygame.mixer.Sound(os.path.join('Sounds', 'Button_Click.mp3'))
@@ -466,7 +447,6 @@ def htp_pressed():
                 if event.type==MOUSEBUTTONDOWN:
                     if event.button==1:
                         click=True
-                        print(bonk)
                 if button_back.collidepoint((bonk)):
                     if click==True:
                         Button_sound= pygame.mixer.Sound(os.path.join('Sounds', 'Button_Click.mp3'))
