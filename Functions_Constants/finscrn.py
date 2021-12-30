@@ -2,7 +2,7 @@ import pygame,sys,os
 from pygame.locals import *
 from Functions_Constants import constants , Transition_moving, register , Level , Ingame_Objects, mfunc, counters
 
-def fin(winner, Health, Sabotages, Hits):
+def fin(winner, Health, Sabotages, Hits):  #Displays a finish screen with all game statistics
     
     running = True
     while running:

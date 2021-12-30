@@ -2,7 +2,7 @@ import pygame,sys,os
 from pygame.locals import *
 from Functions_Constants import constants , Transition_moving, mfunc, SQLtest
 
-def input(event, input_num):
+def input(event, input_num): #Inserts text into the textbox
     if event.type == pygame.MOUSEBUTTONDOWN:
         if constants.input_rect[input_num].collidepoint(event.pos):
             constants.active[input_num] = True
@@ -21,7 +21,7 @@ def input(event, input_num):
                     constants.user_text[input_num] += event.unicode 
                     constants.charcount[input_num]+=1
 
-def output(output_num):
+def output(output_num):  #Displays the text in the textbox and censors password text
     if (output_num % 2):
         render_text = '*' * len(constants.user_text[output_num])
  
@@ -33,7 +33,7 @@ def output(output_num):
     pygame.draw.rect(constants.WIN,constants.colour[output_num],constants.input_rect[output_num],2) 
 
 
-def db_log():
+def db_log():  #Creates an account in the MySQL table 'account'
     try:
         PlayerList=[]
         itercount = 0
@@ -43,12 +43,11 @@ def db_log():
                 PlayerList.append(constants.user_text[i])
                 
             else:
-                print('pass', itercount, 'wrong')
                 return None,False
         return PlayerList,True
     except:
         pass
 
-def fieldclear():
+def fieldclear():  #Clears the textbox text once the player exits login screen
     for i in range(0,4,2):
         constants.user_text[i], constants.user_text[i+1] = '',''

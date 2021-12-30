@@ -196,7 +196,6 @@ def Lvl_pressed(Level):
             if easter_egg_triggered==0:
                 if Ingame_Objects.EasterEgg_collision(Player_Hitbox, easter_egg_rect):
                     easter_egg_triggered=1
-                    print(easter_egg_triggered)
 
             if easter_egg_triggered==1:
                 counters.draw_text("Congratulations! You wasted your time to find an easter egg!",constants.Newfont,(255,255,255), constants.WIN, 48, 642)
@@ -219,7 +218,6 @@ def Lvl_pressed(Level):
             winner = "Player 1 "
             win_user = 0
             try:
-                print(mfunc.Players[win_user], winner, Remaining_Health, Sabotages, Hits)
                 for i in range (0,2):
                     exist = SQLtest.account_check(mfunc.Players[i])
                     SQLtest.stats_input(exist, mfunc.Players[i], win_user)
@@ -242,7 +240,6 @@ def Lvl_pressed(Level):
             winner = "Player 2 "
             win_user = 1
             try:
-                print(mfunc.Players[win_user], winner,Remaining_Health,Sabotages, Hits )
                 for i in range (0,2):
                     SQLtest.stats_input(SQLtest.account_check(mfunc.Players[i]), mfunc.Players[i], win_user)
                     

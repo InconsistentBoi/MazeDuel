@@ -63,7 +63,6 @@ def main_menu():
                 if event.type==MOUSEBUTTONDOWN:
                     if event.button==1:
                         click=True
-                        print(bonk)
                 if button_exit.collidepoint((bonk)):
                     if click==True:
                         click=False

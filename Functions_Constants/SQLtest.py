@@ -2,7 +2,7 @@ import mysql.connector as sql
 import pygame
 from Functions_Constants import counters, constants, mfunc
 
-def sql_input(user_text, pw_text):
+def sql_input(user_text, pw_text):  #Creates a record of username and password in the table 'account'
 
     try:
         if user_text=="":
@@ -30,7 +30,7 @@ def sql_input(user_text, pw_text):
         mfunc.Error_Hitbox.x,mfunc.Error_Hitbox.y = 600,200
         mfunc.Success_Hitbox.x,mfunc.Success_Hitbox.y = 1280,720
 
-def sql_del(user_text, pw_text):
+def sql_del(user_text, pw_text):  #deletes an account(record) based on given username
     try:
         if user_text=="":
             raise Exception()
@@ -47,7 +47,7 @@ def sql_del(user_text, pw_text):
     except:
         pass
 
-def sql_login(user_text, pw_text):
+def sql_login(user_text, pw_text):  #True if username and password exists in table 'account'
     try:
         if user_text=='':
             raise Exception()
@@ -75,7 +75,7 @@ def sql_login(user_text, pw_text):
         mfunc.Error_Hitbox.x,mfunc.Error_Hitbox.y = 600,200
         mfunc.Success_Hitbox.x,mfunc.Success_Hitbox.y = 1280,720
 
-def account_check(u_name):
+def account_check(u_name):  #Returns 1 or 0 based on account existence in table 'statistics'
     
     mycon = sql.connect(host='localhost',user='root',database='mazeduel',password='password')
     cursor = mycon.cursor()
@@ -89,15 +89,12 @@ def account_check(u_name):
     data = cursor.fetchall()
     if data == []:
         exist = 0
-        print(exist)
     else:
         exist = 1
-        print(exist)
     return exist
     mycon.close()
     
-def stats_input(exist, u_name, win_user): #pay attention to parameters while calling funtion
-    print(exist, u_name, win_user)
+def stats_input(exist, u_name, win_user):  #Creates a record based on username and updates wins and losses based on outcome
 
     mycon = sql.connect(host='localhost',user='root',database='mazeduel',password='password')
     cursor = mycon.cursor()

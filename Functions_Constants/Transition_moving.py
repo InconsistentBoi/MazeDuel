@@ -12,7 +12,7 @@ def fadetoblack(Width,Height):
         constants.WIN.blit(fade, (0,0))
         pygame.display.update()
 
-def fadetoscreen(Width,Height): #The opposite of fadetoblack
+def fadetoscreen(Width,Height): #Fades to screen from black
     fade = pygame.Surface((Width, Height))
     fade.fill((0,0,0))
     for alpha in range(200, 0,-15):
