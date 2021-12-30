@@ -86,28 +86,9 @@ def Lvl_pressed(Level):
             Ingame_Objects.landmine3_collision(Player_Hitbox,Landmine3_Hitbox)
         else:
             pass
-        
-        '''if f==0:  #needs fixing
-            
-                Strike = constants.WIN.blit(constants.Strike,(mx-100,my-100))
-                seconds=(pygame.time.get_ticks()-start_ticks)/1000 
-            
-                       
-                Strike = constants.WIN.blit(constants.Strike,(bonk))
-                
-                if seconds>5:
-                    Ingame_Objects.Strike_collision(Player_Hitbox)     
-                print(seconds)
-        else:
-            Strike_Hitbox.x=Player_Hitbox.x
-            Strike_Hitbox.y=Player_Hitbox.y'''
-        
-
 
         mx,my=pygame.mouse.get_pos()
         bonk=(mx,my)
-
-        # Maze=constants.WIN.blit(constants.Level1,(90,90))   
         
         Laser_Button = constants.WIN.blit(constants.Laser_button,(1030,90))
 
@@ -123,17 +104,11 @@ def Lvl_pressed(Level):
 
         Mine3_Button = constants.WIN.blit(constants.Mine3_button,(1190,455))
 
-        # Strike_Button= constants.WIN.blit(constants.Strike_button, (1030,540))
-
         Laser = constants.WIN.blit(constants.Laser,(Laser_Hitbox.x,Laser_Hitbox.y)) 
 
         Rocket = constants.WIN.blit(constants.Rocket,(Rocket_Hitbox.x,Rocket_Hitbox.y))
-
-        # Strike = constants.WIN.blit(constants.Strike,(Strike_Hitbox.x,Strike_Hitbox.y))
         
         counters.RunningTime()
-
-    
 
         for event in pygame.event.get():    
             if event.type==QUIT:
@@ -181,11 +156,6 @@ def Lvl_pressed(Level):
                     Used_Num-=1
                     constants.Used_Sabotages += 1
 
-            # if Strike_Button.collidepoint((bonk)):
-            #     if click==True:
-            #         f=0
-            #         constants.Used_Sabotages += 1 
-
             if event.type==KEYDOWN:
                     if event.key==K_ESCAPE:
                         Transition_moving.fadetoblack(constants.Width,constants.Height)
@@ -220,14 +190,9 @@ def Lvl_pressed(Level):
                 constants.WIN.blit(Line1,(388, 553))
                 constants.WIN.blit(Line2,(600, 415))
                 constants.WIN.blit(Line3,(543, 285))
-                
-
-            
-
 
         keys_pressed=pygame.key.get_pressed()
-        
-            
+          
         Ingame_Objects.laser_collision(Player_Hitbox,Laser_Hitbox)
         Ingame_Objects.rocket_collision(Player_Hitbox,Rocket_Hitbox)
         Ingame_Objects.maze_collision(Player_Hitbox)

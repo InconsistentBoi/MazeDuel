@@ -4,8 +4,6 @@ from Functions_Constants import constants
 
 pygame.init()
 
-
-
 def fadetoblack(Width,Height): 
     fade = pygame.Surface((Width, Height))
     fade.fill((0,0,0))

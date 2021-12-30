@@ -48,11 +48,6 @@ def fin(winner, Health, Sabotages, Hits):
             if event.type==MOUSEBUTTONDOWN:
                 if event.button==1:
                     click=True
-            # if event.type==KEYDOWN:
-            #         if event.key==K_ESCAPE:
-            #             running=False
-            #         if event.key==K_BACKSPACE:
-            #             mfunc.play_pressed()
 
             pygame.display.update()
             constants.Clock.tick(constants.FPS)

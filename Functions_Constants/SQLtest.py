@@ -44,13 +44,8 @@ def sql_del(user_text, pw_text):
         cursor.execute(sql_command, delrec)
         mycon.commit()
         mycon.close()
-        # mfunc.Error_Hitbox.x,mfunc.Error_Hitbox.y = 1280,720
-        # mfunc.Success_Hitbox.x,mfunc.Success_Hitbox.y = 600,200
-
     except:
         pass
-        # mfunc.Error_Hitbox.x,mfunc.Error_Hitbox.y = 600,200
-        # mfunc.Success_Hitbox.x,mfunc.Success_Hitbox.y = 1280,720
 
 def sql_login(user_text, pw_text):
     try:
@@ -74,9 +69,7 @@ def sql_login(user_text, pw_text):
                 return True
         mycon.close()
         mfunc.Error_Hitbox.x,mfunc.Error_Hitbox.y = 1280,720
-        mfunc.Success_Hitbox.x,mfunc.Success_Hitbox.y = 600,200
-        
-        
+        mfunc.Success_Hitbox.x,mfunc.Success_Hitbox.y = 600,200      
 
     except:
         mfunc.Error_Hitbox.x,mfunc.Error_Hitbox.y = 600,200

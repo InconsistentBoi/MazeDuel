@@ -19,11 +19,7 @@ def input(event, input_num):
             else:
                 if constants.charcount[input_num] < 10:
                     constants.user_text[input_num] += event.unicode 
-                    constants.charcount[input_num]+=1
-    
-    
-
-
+                    constants.charcount[input_num]+=1    
 
 def output(output_num):
     global render_text

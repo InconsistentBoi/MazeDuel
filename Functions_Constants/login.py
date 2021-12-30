@@ -22,10 +22,6 @@ def input(event, input_num):
                 if constants.charcount[input_num] < 10:
                     constants.user_text[input_num] += event.unicode 
                     constants.charcount[input_num]+=1
-    
-    
-
-
 
 def output(output_num):
     if (output_num % 2):
@@ -42,7 +38,6 @@ def output(output_num):
     pygame.draw.rect(constants.WIN,constants.colour[output_num],constants.input_rect[output_num],2) 
 
 
-
 def db_log():
     try:
         PlayerList=[]
@@ -56,9 +51,6 @@ def db_log():
                 print('pass', itercount, 'wrong')
                 return None,False
         print(PlayerList)
-        # if PlayerList[2]==PlayerList[1]:
-        #     PlayerList[2]=''
-        #     counters.draw_text('Player 1 and 2 cannot have the same username',constants.font,(255,255,255),constants.WIN,10,200)
         return PlayerList,True
     except:
         pass
