@@ -109,7 +109,6 @@ def stats_input(exist, u_name, win_user): #pay attention to parameters while cal
         cursor.execute(sql_command, update)
         mycon.commit()
         exist = 1
-        print(u_name,'created')
 
     if exist == 1:
         if u_name == mfunc.Players[win_user]:
@@ -124,6 +123,5 @@ def stats_input(exist, u_name, win_user): #pay attention to parameters while cal
 
         cursor.execute(sql_command, var)
         mycon.commit()
-        print('var',var)
     mycon.close()
     

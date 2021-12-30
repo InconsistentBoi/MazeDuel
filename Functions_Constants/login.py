@@ -45,7 +45,6 @@ def db_log():
             else:
                 print('pass', itercount, 'wrong')
                 return None,False
-        print(PlayerList)
         return PlayerList,True
     except:
         pass

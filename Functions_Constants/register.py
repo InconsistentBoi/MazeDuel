@@ -25,12 +25,9 @@ def output(output_num):
     global render_text
     if (output_num % 2):
         render_text = '*' * len(constants.user_text[output_num])
-
         
     else:
         render_text = constants.user_text[output_num]
-
-        
 
     text_surface = constants.base_font[output_num].render(render_text,True,(255,242,0))
     constants.WIN.blit(text_surface,(constants.input_rect[output_num].x + 5, constants.input_rect[output_num].y + 5))
