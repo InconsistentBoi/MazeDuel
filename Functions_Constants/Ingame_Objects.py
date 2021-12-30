@@ -5,8 +5,6 @@ from pygame.locals import *
 from Functions_Constants import constants, Transition_moving, Level , counters
 
 
-
-
 def player_movement(keys_pressed, Player_Hitbox):
     if keys_pressed[K_a]:
         if maze_collision(Player_Hitbox) != True:  # Leftttttt

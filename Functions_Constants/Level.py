@@ -21,23 +21,24 @@ def Lvl_pressed(Level):
     a,b,c,d,e=(1,1,1,1,1)
     Used_Num=2
     start_ticks=pygame.time.get_ticks()
+
     while running:
         counters.seconds=(pygame.time.get_ticks()-start_ticks)/1000
         constants.WIN.blit(Level,(0,0))
         click=False
 
-        if a==0:
+        if a==0: #When a=0 (becomes 0 when laser button is pressed), the laser starts moving upwards
             Ingame_Objects.laser_pressed(Laser_Hitbox)
-        else:
+        else: # When a=1 (initialized at the start), the laser x axis will be the same as player x axis
             Laser_Hitbox.x=Player_Hitbox.x + 10
 
-        if b==0:
+        if b==0: #Works the same way as laser
             Ingame_Objects.rocket_pressed(Rocket_Hitbox)
         else:
             Rocket_Hitbox.x=Player_Hitbox.x 
     
-        if c==0:
-            if Level == constants.L1_Layout:
+        if c==0: #C is for Landmine 1 , when c=0 (Landmine 1 pressed) the hitbox for landmine 1 is created and collision can occur
+            if Level == constants.L1_Layout: # Different Level different position of landmine
                 Landmine1_Hitbox = pygame.Rect(393,365,40,40)
                 Active_Landmine1=constants.WIN.blit(constants.Active_Landmine,(Landmine1_Hitbox.x,Landmine1_Hitbox.y))
 
@@ -53,7 +54,7 @@ def Lvl_pressed(Level):
         else:
             pass
         
-        if d==0:
+        if d==0: #D is for Landmine 2 , works the same way as c
             if Level == constants.L1_Layout:
                 Landmine2_Hitbox = pygame.Rect(790,565,40,40)
                 Active_Landmine2=constants.WIN.blit(constants.Active_Landmine,(Landmine2_Hitbox.x,Landmine2_Hitbox.y))
@@ -70,7 +71,7 @@ def Lvl_pressed(Level):
         else:
             pass
             
-        if e==0:
+        if e==0: #E is for Landmine 3 , works the same way as c
             if Level == constants.L1_Layout:
                 Landmine3_Hitbox = pygame.Rect(710,270,40,40)
                 Active_Landmine3=constants.WIN.blit(constants.Active_Landmine,(Landmine3_Hitbox.x,Landmine3_Hitbox.y))
@@ -117,7 +118,6 @@ def Lvl_pressed(Level):
             if event.type==MOUSEBUTTONDOWN:
                     if event.button==1:
                         click=True
-                        print(bonk)
             if Laser_Button.collidepoint((bonk)):
                 if click==True:
                     if a==1:
@@ -127,7 +127,6 @@ def Lvl_pressed(Level):
                         constants.Used_Sabotages += 1
                     a=0
                     
-
             if Rocket_Button.collidepoint((bonk)):
                 if click==True:
                     if b==1:
@@ -136,8 +135,7 @@ def Lvl_pressed(Level):
                         Rocket_sound.set_volume(0.05)
                         constants.Used_Sabotages += 1
                     b=0
-                    
-                    
+                                     
             if Mine1_Button.collidepoint((bonk)):
                 if Used_Num>=1 and click==True and c==1:
                     c=0
@@ -165,9 +163,7 @@ def Lvl_pressed(Level):
                         
         if Level == constants.L1_Layout:
             easter_egg_rect =  pygame.Rect(764,326,65,210)
-            
-        
-        
+                
         if Level == constants.L2_Layout:
             Spin = constants.rotate("Line.png",(10,85),constants.ANGLE)
             constants.WIN.blit(Spin,(765 - Spin.get_width()/2,355 - Spin.get_width()/2))
