@@ -44,8 +44,11 @@ def sql_del(user_text, pw_text):  #deletes an account(record) based on given use
         cursor.execute(sql_command, delrec)
         mycon.commit()
         mycon.close()
+        mfunc.Error_Hitbox.x,mfunc.Error_Hitbox.y = 1280,720
+        mfunc.Success_Hitbox.x,mfunc.Success_Hitbox.y = 600,200
     except:
-        pass
+        mfunc.Error_Hitbox.x,mfunc.Error_Hitbox.y = 600,200
+        mfunc.Success_Hitbox.x,mfunc.Success_Hitbox.y = 1280,720
 
 def sql_login(user_text, pw_text):  #True if username and password exists in table 'account'
     try:

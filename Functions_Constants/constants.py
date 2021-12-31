@@ -144,7 +144,7 @@ input_rect = [pygame.Rect(200,300,335,45), pygame.Rect(200,600,335,45), pygame.R
 active = [False, False, False, False]
 charcount = [0, 0, 0, 0]
 user_text = ['', '', '', '']
-
+reset_text = ['', '', '', '']
 rectcol_a = pygame.Color('white')
 rectcol_p = pygame.Color('lightskyblue3')
 base_font = [pygame.font.Font(None, 45), pygame.font.Font(None, 40), pygame.font.Font(None, 45), pygame.font.Font(None, 40)]

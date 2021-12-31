@@ -21,7 +21,8 @@ def input(event, input_num): #Inserts text into the textbox
                     constants.user_text[input_num] += event.unicode 
                     constants.charcount[input_num]+=1
 
-def output(output_num):  #Displays the text in the textbox and censors password text
+def output(output_num):
+    global render_text, text_surface  #Displays the text in the textbox and censors password text
     if (output_num % 2):
         render_text = '*' * len(constants.user_text[output_num])
  
@@ -49,5 +50,8 @@ def db_log():  #Creates an account in the MySQL table 'account'
         pass
 
 def fieldclear():  #Clears the textbox text once the player exits login screen
-    for i in range(0,4,2):
-        constants.user_text[i], constants.user_text[i+1] = '',''
+    for i in range(4):
+        print(constants.user_text)
+        constants.user_text[i] = ''
+        constants.charcount[i] = 0
+        print(constants.user_text)

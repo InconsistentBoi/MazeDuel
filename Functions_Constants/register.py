@@ -22,7 +22,7 @@ def input(event, input_num):  #Inserts text into the textbox
                     constants.charcount[input_num]+=1    
 
 def output(output_num):  #Displays the text in the textbox and censors password text
-    global render_text
+    global render_text, text_surface
     if (output_num % 2):
         render_text = '*' * len(constants.user_text[output_num])
         
@@ -44,6 +44,9 @@ def db_del():  #Deletes an account from the table 'account'
     for i in range(1):
         SQLtest.sql_del(constants.user_text[i], constants.user_text[i+1])
 
-def fieldclear():  #Clears the textbox text once the player exits login screen
-    for i in range(1):
-        constants.user_text[i], constants.user_text[i+1] = '',''
+def fieldclear():  #Clears the textbox text once the player exits register screen
+    for i in range(2):
+        print(constants.user_text)
+        constants.user_text[i] = ''
+        constants.charcount[i] = 0
+        print(constants.user_text)
