@@ -275,7 +275,7 @@ def register_pressed():
         counters.draw_text("Error deleting account",constants.font,(236,28,36),constants.WIN, Del_Error_Hitbox.x, Del_Error_Hitbox.y)
         counters.draw_text("Successfully deleted account",constants.font,(0,255,0),constants.WIN, Del_Success_Hitbox.x,Del_Success_Hitbox.y)
 
-        counters.draw_text("Account",constants.font,(236,28,36),constants.WIN,200,270)
+        counters.draw_text("Username",constants.font,(236,28,36),constants.WIN,200,270)
         counters.draw_text("Password",constants.font,(236,28,36),constants.WIN,200,570)
 
         mx,my=pygame.mouse.get_pos()
@@ -334,8 +334,8 @@ def login_pressed():
         button_back=constants.WIN.blit(constants.Image_back,(10,5))
 
         button_signin = constants.WIN.blit(constants.Image_login,(500,400))
-        counters.draw_text("Player 1 Login",constants.font,(236,28,36),constants.WIN,200,270)
-        counters.draw_text("Player 2 Login",constants.font,(236,28,36),constants.WIN,650,270)
+        counters.draw_text("Player 1 Username",constants.font,(236,28,36),constants.WIN,200,270)
+        counters.draw_text("Player 2 Username",constants.font,(236,28,36),constants.WIN,650,270)
         counters.draw_text("Player 1 Password",constants.font,(236,28,36),constants.WIN,200,570)
         counters.draw_text("Player 2 Password",constants.font,(236,28,36),constants.WIN,650,570)
 
