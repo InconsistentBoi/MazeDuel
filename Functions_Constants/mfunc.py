@@ -257,6 +257,8 @@ def fullscreen_pressed():
 
 Error_Hitbox = pygame.Rect(1280,720,5,50)
 Success_Hitbox = pygame.Rect(1280,720,5,50)
+Del_Error_Hitbox = pygame.Rect(1280,720,5,50)
+Del_Success_Hitbox = pygame.Rect(1280,720,5,50)
 
 def register_pressed():
     running=True
@@ -265,11 +267,14 @@ def register_pressed():
         constants.WIN.blit(constants.Blank_BG,(0,0))
         button_back=constants.WIN.blit(constants.Image_back,(10,5))
 
-        button_createacc = constants.WIN.blit(constants.Image_register,(600,375))
-        button_delacc = constants.WIN.blit(constants.Image_delacc,(600, 100))
+        button_createacc = constants.WIN.blit(constants.Image_register,(600,300))
+        button_delacc = constants.WIN.blit(constants.Image_delacc,(600, 600))
 
-        counters.draw_text("Error",constants.font,(236,28,36),constants.WIN, Error_Hitbox.x,Error_Hitbox.y)
-        counters.draw_text("Successful",constants.font,(0,255,0),constants.WIN, Success_Hitbox.x,Success_Hitbox.y)
+        counters.draw_text("Error creating account",constants.font,(236,28,36),constants.WIN, Error_Hitbox.x,Error_Hitbox.y)
+        counters.draw_text("Successfully created account",constants.font,(0,255,0),constants.WIN, Success_Hitbox.x,Success_Hitbox.y)
+
+        counters.draw_text("Error deleting account",constants.font,(236,28,36),constants.WIN, Del_Error_Hitbox.x, Del_Error_Hitbox.y)
+        counters.draw_text("Successfully deleted account",constants.font,(0,255,0),constants.WIN, Del_Success_Hitbox.x,Del_Success_Hitbox.y)
 
         mx,my=pygame.mouse.get_pos()
         bonk=(mx,my)
@@ -327,8 +332,8 @@ def login_pressed():
         constants.WIN.blit(constants.Blank_BG,(0,0))
         button_back=constants.WIN.blit(constants.Image_back,(10,5))
 
-        button_signin = constants.WIN.blit(constants.Image_login,(600,375))
-
+        button_signin = constants.WIN.blit(constants.Image_login,(500,400))
+        
         counters.draw_text("Error logging in",constants.font,(236,28,36),constants.WIN, Error_Hitbox.x,Error_Hitbox.y)
         counters.draw_text("Successfully logged in",constants.font,(0,255,0),constants.WIN, Success_Hitbox.x,Success_Hitbox.y)
 

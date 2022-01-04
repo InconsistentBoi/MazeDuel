@@ -25,10 +25,14 @@ def sql_input(user_text, pw_text):  #Creates a record of username and password i
         mycon.close()
         mfunc.Error_Hitbox.x,mfunc.Error_Hitbox.y = 1280,720
         mfunc.Success_Hitbox.x,mfunc.Success_Hitbox.y = 600,200
+        mfunc.Del_Error_Hitbox.x,mfunc.Del_Error_Hitbox.y = 1280,720
+        mfunc.Del_Success_Hitbox.x,mfunc.Del_Success_Hitbox.y = 1280,720
 
     except:
         mfunc.Error_Hitbox.x,mfunc.Error_Hitbox.y = 600,200
         mfunc.Success_Hitbox.x,mfunc.Success_Hitbox.y = 1280,720
+        mfunc.Del_Error_Hitbox.x,mfunc.Del_Error_Hitbox.y = 1280,720
+        mfunc.Del_Success_Hitbox.x,mfunc.Del_Success_Hitbox.y = 1280,720
 
 def sql_del(user_text, pw_text):  #deletes an account(record) based on given username
     try:
@@ -36,6 +40,12 @@ def sql_del(user_text, pw_text):  #deletes an account(record) based on given use
             raise Exception()
         mycon = sql.connect(host='localhost',user='root',database='mazeduel',password='password')
         cursor = mycon.cursor()
+        sql_command = '''select * from account where Uname = %s'''
+        check = (sql_command,)
+        cursor.execute(sql_command, check)
+        data = cursor.fetchall()
+        if data == []:
+            raise Exception()
 
         sql_command = '''delete from account where Uname=%s;'''
 
@@ -44,10 +54,14 @@ def sql_del(user_text, pw_text):  #deletes an account(record) based on given use
         cursor.execute(sql_command, delrec)
         mycon.commit()
         mycon.close()
+        mfunc.Del_Error_Hitbox.x,mfunc.Del_Error_Hitbox.y = 1280,720
+        mfunc.Del_Success_Hitbox.x,mfunc.Del_Success_Hitbox.y = 600,200
         mfunc.Error_Hitbox.x,mfunc.Error_Hitbox.y = 1280,720
-        mfunc.Success_Hitbox.x,mfunc.Success_Hitbox.y = 600,200
+        mfunc.Success_Hitbox.x,mfunc.Success_Hitbox.y = 1280,720
     except:
-        mfunc.Error_Hitbox.x,mfunc.Error_Hitbox.y = 600,200
+        mfunc.Del_Error_Hitbox.x,mfunc.Del_Error_Hitbox.y = 600,200
+        mfunc.Del_Success_Hitbox.x,mfunc.Del_Success_Hitbox.y = 1280,720
+        mfunc.Error_Hitbox.x,mfunc.Error_Hitbox.y = 1280,720
         mfunc.Success_Hitbox.x,mfunc.Success_Hitbox.y = 1280,720
 
 def sql_login(user_text, pw_text):  #True if username and password exists in table 'account'

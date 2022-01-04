@@ -51,7 +51,5 @@ def db_log():  #Creates an account in the MySQL table 'account'
 
 def fieldclear():  #Clears the textbox text once the player exits login screen
     for i in range(4):
-        print(constants.user_text)
         constants.user_text[i] = ''
         constants.charcount[i] = 0
-        print(constants.user_text)

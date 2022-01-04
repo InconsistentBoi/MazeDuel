@@ -46,7 +46,9 @@ def db_del():  #Deletes an account from the table 'account'
 
 def fieldclear():  #Clears the textbox text once the player exits register screen
     for i in range(2):
-        print(constants.user_text)
         constants.user_text[i] = ''
         constants.charcount[i] = 0
-        print(constants.user_text)
+        mfunc.Error_Hitbox.x,mfunc.Error_Hitbox.y = 1280,720
+        mfunc.Success_Hitbox.x,mfunc.Success_Hitbox.y = 1280,720
+        mfunc.Del_Error_Hitbox.x,mfunc.Del_Error_Hitbox.y = 1280,720
+        mfunc.Del_Success_Hitbox.x,mfunc.Del_Success_Hitbox.y = 1280,720
