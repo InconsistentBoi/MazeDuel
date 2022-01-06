@@ -67,7 +67,10 @@ Image_login = scale("Button_Login.png",normal_size)
 Image_login_enlarged = scale("Button_Login.png",enlarged_size)
 Image_delacc = scale("Delete_Account.png", normal_size)
 
+Image_delacc_enlarged = scale("Delete_Account.png",enlarged_size)
+
 Image_credit = scale("Button_Credits.png",(140,60))
+Image_credit_enlarged=scale("Button_Credits.png",(150,70))
 
 Button_HTP= scale("Button_HTP.png",normal_size)
 Button_HTP_enlarged= scale("Button_HTP.png",enlarged_size)

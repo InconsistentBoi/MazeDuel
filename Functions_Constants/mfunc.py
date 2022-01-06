@@ -41,6 +41,9 @@ def main_menu():
             if button_exit.collidepoint((bonk)):
                     button_exit=constants.WIN.blit(constants.Image_exit_enlarged,(35,600))
 
+            if button_credit.collidepoint(bonk):
+                constants.WIN.blit(constants.Image_credit_enlarged,(1,1))
+
             if button_secret.collidepoint(bonk):
                     bin_file= os.path.join("Files","EasterEgg.bin")
                     f = open(bin_file,"rb")
@@ -281,6 +284,14 @@ def register_pressed():
         mx,my=pygame.mouse.get_pos()
         bonk=(mx,my)
 
+        if button_back.collidepoint((bonk)):
+            constants.WIN.blit(constants.Image_back_enlarged,(10,5))
+
+        if button_createacc.collidepoint((bonk)):
+            constants.WIN.blit(constants.Image_register_enlarged,(600,300))
+
+        if button_delacc.collidepoint((bonk)):
+            constants.WIN.blit(constants.Image_delacc_enlarged,(600,580))
 
         for event in pygame.event.get():
             if event.type==QUIT:
@@ -344,6 +355,12 @@ def login_pressed():
 
         mx,my=pygame.mouse.get_pos()
         bonk=(mx,my)
+
+        if button_back.collidepoint((bonk)):
+            constants.WIN.blit(constants.Image_back_enlarged,(10,5))
+
+        if button_signin.collidepoint(bonk):
+            constants.WIN.blit(constants.Image_login_enlarged,(500,400))
 
         for event in pygame.event.get():
             if event.type==QUIT:
