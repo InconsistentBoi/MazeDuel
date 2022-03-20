@@ -40,8 +40,8 @@ def sql_del(user_text, pw_text):  #deletes an account(record) based on given use
             raise Exception()
         mycon = sql.connect(host='localhost',user='root',database='mazeduel',password='password')
         cursor = mycon.cursor()
-        sql_command = '''select * from account where Uname = %s'''
-        check = (sql_command,)
+        sql_command = '''select * from account where Uname= %s and Pword=%s'''
+        check = (user_text,pw_text)
         cursor.execute(sql_command, check)
         data = cursor.fetchall()
         if data == []:
